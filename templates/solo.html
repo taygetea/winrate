@@ -3,7 +3,7 @@
 
 <div class="container grey darken-4 z-depth-2" style="padding: 2vh">
     {% for thumb in thumbs %}
-    <a href={{ request.path }}/{{ thumbids[loop.index0] }}>
+    <a href="{{ request.path }}/{{ thumbids[loop.index0] }}/foe">
     	<img class="hoverable" src={{ thumb }}>
     </a>
     {% endfor %}

@@ -49,28 +49,11 @@ def playerdict(pid):
 
 @app.route('/')
 def index():
-    return redirect("/debug/1")
+    return redirect("/1")
 
-@app.route('/<hero>', methods=['GET', 'POST'])
-def herosel(hero=None):
-    if request.method == 'POST':
-        hero = request.form['hero']
-        print(hero)
-        return redirect('/%s' % hero)
-    if request.method == 'GET':
-        return render_template(
-            'index.html', 
-            h_names = list(data['localized_name']), 
-            h_ids = list(data['id']))
 
-@app.route('/debug')
-def debug():
-    return render_template(
-        "debug.html",
-        thumbs=thumbs,
-        thumbids=thumbids)
 
-@app.route('/debug/<id>')
+@app.route('/<id>')
 def solopage(id):
     player = playerdict(id)
     items = soloitems(id)
@@ -80,10 +63,10 @@ def solopage(id):
         items=items, 
         thumbs = thumbs, 
         thumbids = thumbids)
-@app.route('/debug/<id>/<id2>')
+@app.route('/<id>/<id2>')
 def pair(id, id2):
     if id == id2:
-        return redirect("/debug/%s" % id)
+        return redirect("/%s" % id)
     p1 = playerdict(id)
     p2 = playerdict(id2)
     items1 = soloitems(id)
@@ -99,8 +82,10 @@ def pair(id, id2):
         thumbs = thumbs, 
         thumbids = thumbids)
 
-@app.route('/debug/<id>/<id2>/<view>')
+@app.route('/<id>/<id2>/<view>')
 def joint(id, id2, view):
+    if id == id2:
+        return redirect("/%s" % id)
     p1 = playerdict(id)
     p2 = playerdict(id2)
     items1 = soloitems(id)
@@ -112,7 +97,7 @@ def joint(id, id2, view):
         other_items1 = frienditems(id, id2)
         other_items2 = frienditems(id2, id)
     else:
-        return redirect("/debug/%s/%s" % (id, id2))
+        return redirect("/%s/%s" % (id, id2))
     return render_template(
         'joint.html', 
         pl1 = p1,
@@ -125,24 +110,6 @@ def joint(id, id2, view):
         thumbs = thumbs, 
         thumbids = thumbids)
 
-@app.route('/debug2/<id>/<id2>')
-def joint2(id, id2):
-    if id == id2:
-        return redirect("/debug/%s" % id)
-    p1 = playerdict(id)
-    p2 = playerdict(id2)
-    items1 = soloitems(id)
-    items2 = soloitems(id2)
-    foe_items1 = foeitems(id, id2)
-    foe_items2 = foeitems(id2, id)
-    return render_template(
-        'joint2.html', 
-        pl1 = p1, 
-        pl2 = p2, 
-        items1 = items1,
-        items2 = items2,
-        thumbs = thumbs, 
-        thumbids = thumbids)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

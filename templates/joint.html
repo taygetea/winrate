@@ -22,7 +22,7 @@
 <div class="container grey darken-4 z-depth-2" style="padding: 2vh">
     {% for thumb in thumbs %}
     
-    <a href=/debug/{{ thumbids[loop.index0] }}>
+    <a href=/{{ thumbids[loop.index0] }}>
     	<img src={{ thumb }}>
     </a>
     {% endfor %}
@@ -154,6 +154,7 @@
 					</td>
 					<td>
 						<img class="right responsive-img" src="http://cdn.dota2.com/apps/dota2/images/abilities/sven_storm_bolt_hp1.png?v=3478809">
+					</td>
 				</tr>
 			</table>
 			</div>
@@ -180,6 +181,7 @@
 				
 				</tr>
 				{% endfor %}
+
 				<tr>
 					<td>
 						<p class="right-align">Storm Bolt</p>
@@ -187,6 +189,7 @@
 					</td>
 					<td>
 						<img class="right responsive-img" src="http://cdn.dota2.com/apps/dota2/images/abilities/sven_storm_bolt_hp1.png?v=3478809">
+					</td>
 				</tr>
 			</table>
 			</div>
