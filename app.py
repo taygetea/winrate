@@ -1,5 +1,9 @@
-from flask import *
+"""Flask project for moba winrate site."""
+
+
+from flask import Flask
 import pandas as pd
+
 
 app = Flask(__name__)
 
@@ -11,20 +15,24 @@ friends = pd.read_csv('teammates.csv')
 thumbs = list(data['url_small_portrait'])
 thumbids = list(data['id'])
 
+
 def pdextract(row, col):
+    """Helper function to get the value at a row and column."""
     return row[col].values[0]
 
+
 def getitems(row):
-    itemnames = [pdextract(row, 'item_name%s' % i) for i in range(0,5)]
-    itemids = [pdextract(row, 'item%s' % i) for i in range(0,5)]
-    winrate = [pdextract(row, 'item_WR%s' % i) for i in range(0,5)]
+    itemnames = [pdextract(row, 'item_name%s' % i) for i in range(0, 5)]
+    itemids = [pdextract(row, 'item%s' % i) for i in range(0, 5)]
+    winrate = [pdextract(row, 'item_WR%s' % i) for i in range(0, 5)]
     urls = [pdextract(items[items['id'] == i], 'url_image') for i in itemids]
     out = [
-    {"id": itemids[i], 
-    "name": itemnames[i], 
-    "url": urls[i], 
-    "wr": round(winrate[i],4)} for i in range(len(itemids))]
+        {"id": itemids[i],
+         "name": itemnames[i],
+         "url": urls[i],
+         "wr": round(winrate[i], 4)} for i in range(len(itemids))]
     return out
+
 
 def soloitems(pid):
     hero = solo[solo['hero'] == int(pid)]
@@ -35,9 +43,11 @@ def foeitems(hero1, hero2):
     row = foes[foes['itemhero'] == int(hero1)][foes['herocompare'] == int(hero2)]
     return getitems(row)
 
+
 def frienditems(hero1, hero2):
     row = friends[friends['itemhero'] == int(hero1)][friends['herocompare'] == int(hero2)]
     return getitems(row)
+
 
 def playerdict(pid):
     player = data[data['id'] == int(pid)]
@@ -46,6 +56,7 @@ def playerdict(pid):
     return {"img": img,
             "name" : name,
             "id": pid}
+
 
 @app.route('/')
 def index():
@@ -63,6 +74,8 @@ def solopage(id):
         items=items, 
         thumbs = thumbs, 
         thumbids = thumbids)
+
+
 @app.route('/<id>/<id2>')
 def pair(id, id2):
     if id == id2:
@@ -81,6 +94,7 @@ def pair(id, id2):
         items2 = items2,
         thumbs = thumbs, 
         thumbids = thumbids)
+
 
 @app.route('/<id>/<id2>/<view>')
 def joint(id, id2, view):
