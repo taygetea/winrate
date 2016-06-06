@@ -33,26 +33,26 @@
 	<div class="row">
 
 		<div id="lefthero" class="col s3 m3">
-			<h5>{{ pl1['name']}}</h5>
+			<h4>{{ pl1['name']}}</h4>
 			<img class="responsive-img" src={{ pl1['img']}}>
 		</div>
 
 		{% if view == "friend" %}
 		<div class="col s3 offset-s2">
-			<h4>Teammates</h4>
-			<a href="foe" class="waves-effect btn orange darken-3">Switch to Foe</a>
+			<h5>Teammates</h5>
+			<a href="foe" class="waves-effect btn deep-orange accent-4">Switch to Foe</a>
 		</div>
 		{% endif %}
 
 		{% if view == "foe" %}
 		<div class="col s3 offset-s2">
-			<h4>Opponents</h4>
-			<a href="friend" class="waves-effect btn orange darken-3">Switch to Friend</a>
+			<h5>Opponents</h5>
+			<a href="friend" class="waves-effect btn deep-orange accent-4">Switch to Friend</a>
 		</div>
 		{% endif %}
 
 		<div id="righthero" class="col s3 m3 right">
-			<h5 class="right-align">{{ pl2['name']}}</h5>
+			<h4 class="right-align">{{ pl2['name']}}</h4>
 			<img class="responsive-img" src={{ pl2['img']}} style="float: right;">
 		</div>
 	</div>
@@ -63,9 +63,13 @@
 	<div class="row">
 
 		<div id="lefthero" class="col s3 m3">
-			<div class="section left">
+			<div class="section left" style="padding-top: 0px;">
 			<table>
-				
+				<thead>
+					<tr>
+						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5>
+					</tr>
+				</thead>
 				{% for item in items1 %}
 				<tr>
 				<td>
@@ -91,10 +95,14 @@
 		</div>
 
 
-		<div class="col s2 m2 push-s1 push-m1">
+		<div class="col s2 m2">
 			<div class="section">
 			<table>
-				
+				<thead>
+					<tr>
+						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Paired Items</h5>
+					</tr>
+				</thead>
 				{% for item in other_items1 %}
 				<tr>
 				<td>
@@ -119,10 +127,14 @@
 			</div>
 		</div>
 
-		<div class="col s2 m2 pull-s1 pull-m1" style="margin-left: 14%;">
+		<div class="col s2 m2" style="margin-left: 14%;">
 			<div class="section">
 			<table>
-				
+				<thead>
+					<tr>
+						<h5 class="right-align" style="margin-top: 0px; font-size: 1.3rem;">Best Paired Items</h5>
+					</tr>
+				</thead>
 				{% for item in other_items2 %}
 				<tr>
 				<td>
@@ -149,9 +161,13 @@
 
 
 		<div id="righthero" class="col s3 m3 right">
-			<div class="section right">
+			<div class="section right" style="padding-top: 0px;">
 			<table>
-				
+				<thead>
+					<tr>
+						<h5 class="right-align" style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5>
+					</tr>
+				</thead>
 				{% for item in items2 %}
 				<tr>
 				<td>
