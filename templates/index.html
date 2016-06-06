@@ -1,0 +1,18 @@
+<html>
+    <head>
+    </head>
+
+
+    <body>
+        <form name="Hero" action="index.html" method='POST'>
+            <select name="select">
+                {% for d in data %}
+                <option value={{ d }}>{{ d }}</option>
+                {% endfor %}
+            </select>
+			<input type="submit"/>
+        </form>
+    </body>
+
+
+</html>

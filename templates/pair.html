@@ -1,0 +1,76 @@
+{% extends "base_template.html" %}
+
+{% block body %}
+
+<div class="container grey darken-4 z-depth-2" style="padding: 2vh">
+    {% for thumb in thumbs %}
+    
+    <a href=/debug/{{ thumbids[loop.index0] }}>
+    	<img src={{ thumb }}>
+    </a>
+    {% endfor %}
+</div>
+<div class="container grey darken-4 z-depth-2">
+	
+	<div class="row">
+		<div id="lefthero" class="col s3 m3">
+			<h5>{{ pl1['name']}}</h5>
+			<img class="responsive-img" src={{ pl1['img']}}>
+		</div>
+
+		<a href="{{ request.path }}/foe" class="col s2 waves-effect waves-light btn red darken-4">Switch to Foe</a>
+	
+		<a href="{{ request.path }}/friend" class="col s2 offset-s1 waves-effect waves-light btn green darken-4" style="margin-left: 12rem;">Switch to Friend</a>
+		
+		<div id="righthero" class="col s3 m3 right">
+			<h5 class="right-align">{{ pl2['name']}}</h5>
+			<img class="responsive-img" src={{ pl2['img']}} style="float: right;">
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div id="lefthero" class="col s3 m3">
+			<div class="section left">
+			<table>
+				<tbody>
+					{% for item in items1 %}
+					<tr>
+					<td>
+						<img class="responsive-img" src={{ item['url'] }}>
+					</td>
+					<td>
+						<p>{{ item['name'] }}</p>
+						<p>WR: {{ item['wr'] }}</p>
+					</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			</div>
+		</div>
+
+		<div id="righthero" class="col s3 m3 right">
+			<div class="section right">
+			<table>
+				<tbody>
+					{% for item in items2 %}
+					<tr>
+					<td>
+						<p class="right-align">{{ item['name'] }}</p>
+						<p class="right-align">WR: {{ item['wr'] }}</p>
+					</td>
+					<td>
+						<img class="responsive-img" src={{ item['url'] }}>
+					</td>
+					
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			</div>
+		</div>
+
+	</div>
+</div>
+{% endblock %}

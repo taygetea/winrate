@@ -1,0 +1,67 @@
+{% extends "base_template.html" %}
+{% block body %}
+
+<div class="container grey darken-4 z-depth-2" style="padding: 2vh">
+    {% for thumb in thumbs %}
+    
+    <a href=/debug/{{ thumbids[loop.index0] }}>
+    	<img src={{ thumb }}>
+    </a>
+    {% endfor %}
+    <div class="row">
+		<a href="{{ request.path }}/foe" class="col s2 offset-s3 waves-effect waves-light btn red">Foe</a>
+		<a href="{{ request.path }}/friend" class="col s2 offset-s2 waves-effect waves-light btn green">Friend</a>
+	</div>
+</div>
+<div class="container grey darken-4 z-depth-2">
+	
+	<div class="row">
+		<div class="col s3 m3" style="margin-left: 0.75rem;">
+			<h5>{{ pl1['name']}}</h5>
+			<img class="responsive-img" src={{ pl1['img']}}>
+			<div class="section left">
+			<table class="bordered">
+				<tbody>
+					{% for item in items1 %}
+					<tr>
+					<td style="padding-top: 5px; padding-bottom: 5px;">
+						<img class="responsive-img" src={{ item['url'] }}>
+					</td>
+					<td style="padding-top: 5px; padding-bottom: 5px;">
+						<p>{{ item['name'] }}</p>
+						<p>WR: {{ item['wr'] }}</p>
+					</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			</div>
+		</div>
+
+		
+
+		<div class="col s3 m3 right" style="margin-right: 0.75rem;">
+			<h5 class="right-align">{{ pl2['name']}}</h5>
+			<img class="responsive-img" src={{ pl2['img']}} style="float: right;">
+			<div class="section right">
+			<table>
+				<tbody>
+					{% for item in items2 %}
+					<tr>
+					<td style="padding-top: 5px; padding-bottom: 5px;">
+						<p class="right-align">{{ item['name'] }}</p>
+						<p class="right-align">WR: {{ item['wr'] }}</p>
+					</td>
+					<td style="padding-top: 5px; padding-bottom: 5px;">
+						<img class="responsive-img" src={{ item['url'] }}>
+					</td>
+					
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

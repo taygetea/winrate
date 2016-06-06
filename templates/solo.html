@@ -1,0 +1,37 @@
+{% extends "base_template.html" %}
+{% block body %}
+
+<div class="container grey darken-4 z-depth-2" style="padding: 2vh">
+    {% for thumb in thumbs %}
+    <a href={{ request.path }}/{{ thumbids[loop.index0] }}>
+    	<img class="hoverable" src={{ thumb }}>
+    </a>
+    {% endfor %}
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col s4 m4 grey darken-4 z-depth-2" style="margin-left: 0.75rem;">
+			<h5>{{ pl1['name']}}</h5>
+			<img class="responsive-img" src={{ pl1['img']}}>
+			<div class="section left">
+			<table>
+				<tbody>
+					{% for item in items %}
+					<tr>
+					<td style="padding-top: 5px; padding-bottom: 5px;">
+						<img class="responsive-img" src={{ item['url'] }}>
+					</td>
+					<td style="padding-top: 5px; padding-bottom: 5px;">
+						<p>{{ item['name'] }}</p>
+						<p>WR: {{ item['wr'] }}</p>
+					</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			</div>
+		</div>
+</div>
+{% endblock %}
+
+
