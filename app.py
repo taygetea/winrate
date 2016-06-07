@@ -1,7 +1,7 @@
 """Flask project for moba winrate site."""
 
 
-from flask import Flask
+from flask import Flask, redirect, render_template
 import pandas as pd
 
 
@@ -126,4 +126,4 @@ def joint(id, id2, view):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
