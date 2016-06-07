@@ -20,61 +20,81 @@
 {% endblock %}
 {% block body %}
 
-<div class="container grey darken-4 z-depth-2" style="padding: 2vh">
-    {% for thumb in thumbs %}
-    
-    <a href=/{{ thumbids[loop.index0] }}>
-    	<img src={{ thumb }}>
-    </a>
-    {% endfor %}
-</div>
-
-<div class="container grey darken-4 z-depth-2">
-	
+<div class="container grey darken-4 z-depth-2" style="padding-left: 1rem">
 	<div class="row">
-
-		<div id="lefthero" class="col s4">
-			<h3>{{ pl1['name']}}</h3>
-			<img class="responsive-img" src={{ pl1['img']}}>
+		<div class="col s4">
+			<div class="section">
+				<p>Strength</p>
+				{% for thumb in str1 %}
+					<a href=/{{ str1ids[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+			<div class="section">
+				{% for thumb in str2 %}
+					<a href=/{{ str2ids[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
 		</div>
-		<div class="col s2 offset-s1">
-		<div class="switch">
-    		<label>
-      		Off
-      		<input type="checkbox">
-      		<span class="lever"></span>
-      		On
-    		</label>
-  		</div>
-  		</div>
-
-		<!-- {% if view == "friend" %}
-			<div class="col s2">
-				<h4 >versus</h4>
-				<a href="foe" class="waves-effect btn deep-orange accent-4">to opponents</a>
+		<div class="col s4">
+			<div class="section">
+				<p>Agility</p>
+				{% for thumb in agi1 %}
+					<a href=/{{ agi1ids[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
 			</div>
-		{% endif %}
-
-		{% if view == "foe" %}
-			<div class="col s2">
-				<h4>with</h4>
-				<a href="friend" class="waves-effect btn deep-orange accent-4">to teammates</a>
+			<div class="section">
+				{% for thumb in agi2 %}
+					<a href=/{{ agi2ids[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
 			</div>
-		{% endif %} -->
-
-		<div id="righthero" class="col s4 right">
-			<h3 class="right-align">{{ pl2['name']}}</h3>
-			<img class="responsive-img" src={{ pl2['img']}} style="float: right;">
+		</div>
+		<div class="col s4">
+			<div class="section">
+				<p>Intelligence</p>
+				{% for thumb in int1 %}
+					<a href=/{{ int1ids[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+			<div class="section">
+				{% for thumb in int2 %}
+					<a href=/{{ int2ids[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
 		</div>
 	</div>
+</div>
 
 
 
-
+<div class="container grey darken-4 z-depth-2">
+	<div class="row">
+		<a href="friend" class="col s1 offset-s4 waves-effect btn {% if view == "friend" %} disabled {% endif %}">
+			<img src="http://taygetea.com/files/friend.png" height="32" style="margin-top: 0.2rem">
+		</a>
+		<a href="foe" class="col s1 offset-s2 waves-effect btn {% if view == "foe" %} disabled {% endif %}">
+			<img src="http://taygetea.com/files/foe.png" height="32" style="margin-top: 0.1rem">
+		</a>
+	</div>
 	<div class="row">
 
 		<div id="lefthero" class="col s3 m3">
-			<div class="section left" style="padding-top: 0px;">
+			<div class="section">
+				<h5>{{ pl1['name']}}</h5>
+				<img class="responsive-img" src={{ pl1['img']}}>
+			</div>
+			<div class="section left">
 			<table>
 				<thead>
 					<tr>
@@ -92,6 +112,13 @@
 				</td>
 				</tr>
 				{% endfor %}
+			</table>
+			<table>
+				<thead>
+					<tr>
+						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Skill</h5>
+					</tr>
+				</thead>
 				<tr>
 					<td>
 						<img class="responsive-img" src="http://cdn.dota2.com/apps/dota2/images/abilities/sven_storm_bolt_hp1.png?v=3478809">
@@ -108,6 +135,7 @@
 
 		<div class="col s2 m2">
 			<div class="section">
+			
 			<table>
 				<thead>
 					<tr>
@@ -125,6 +153,13 @@
 				</td>
 				</tr>
 				{% endfor %}
+			</table>
+			<table>
+				<thead>
+					<tr>
+						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Paired Skill</h5>
+					</tr>
+				</thead>
 				<tr>
 					<td>
 						<img class="responsive-img" src="http://cdn.dota2.com/apps/dota2/images/abilities/sven_storm_bolt_hp1.png?v=3478809">
@@ -138,73 +173,99 @@
 			</div>
 		</div>
 
-		<div class="col s2 m2" style="margin-left: 14%;">
-			<div class="section">
-			<table>
-				<thead>
-					<tr>
-						<h5 class="right-align" style="margin-top: 0px; font-size: 1.3rem;">Best Paired Items</h5>
-					</tr>
-				</thead>
-				{% for item in other_items2 %}
-				<tr>
-				<td>
-					<h6 class="right-align">{{ item['name'] }}</h6>
-					<h6 class="right-align">WR: {{ item['wr'] }}</h6>
-				</td>
-				<td>
-					<img class="responsive-img" src={{ item['url'] }}>
-				</td>
-				
-				</tr>
-				{% endfor %}
-				<tr>
-					<td>
-						<p class="right-align">Storm Bolt</p>
-						<p class="right-align">WR: 0.0000</p>
-					</td>
-					<td>
-						<img class="right responsive-img" src="http://cdn.dota2.com/apps/dota2/images/abilities/sven_storm_bolt_hp1.png?v=3478809">
-					</td>
-				</tr>
-			</table>
+
+
+
+
+
+
+
+		<div id="lefthero" class="col s3 m3 offset-s2 offset-m2">
+		<div class="section">
+				<h5>{{ pl2['name']}}</h5>
+				<img class="responsive-img" src={{ pl2['img']}}>
 			</div>
-		</div>
+			<div class="section left">
 
-
-		<div id="righthero" class="col s3 m3 right">
-			<div class="section right" style="padding-top: 0px;">
 			<table>
 				<thead>
 					<tr>
-						<h5 class="right-align" style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5>
+						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5>
 					</tr>
 				</thead>
 				{% for item in items2 %}
 				<tr>
 				<td>
-					<p class="right-align">{{ item['name'] }}</p>
-					<p class="right-align">WR: {{ item['wr'] }}</p>
-				</td>
-				<td>
 					<img class="responsive-img" src={{ item['url'] }}>
 				</td>
-				
+				<td>
+					<p>{{ item['name'] }}</p>
+					<p>WR: {{ item['wr'] }}</p>
+				</td>
 				</tr>
 				{% endfor %}
-
+			</table>
+			<table>
+				<thead>
+					<tr>
+						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Skill</h5>
+					</tr>
+				</thead>
 				<tr>
 					<td>
-						<p class="right-align">Storm Bolt</p>
-						<p class="right-align">WR: 0.0000</p>
+						<img class="responsive-img" src="http://cdn.dota2.com/apps/dota2/images/abilities/sven_storm_bolt_hp1.png?v=3478809">
 					</td>
 					<td>
-						<img class="right responsive-img" src="http://cdn.dota2.com/apps/dota2/images/abilities/sven_storm_bolt_hp1.png?v=3478809">
+						<p>Storm Bolt</p>
+						<p>WR: 0.0000</p>
 					</td>
 				</tr>
 			</table>
 			</div>
 		</div>
+
+		<div class="col s2 m2">
+			<div class="section">
+			
+			<table>
+				<thead>
+					<tr>
+						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Paired Items</h5>
+					</tr>
+				</thead>
+				{% for item in other_items2 %}
+				<tr>
+				<td>
+					<img class="responsive-img" src={{ item['url'] }}>
+				</td>
+				<td>
+					<h6>{{ item['name'] }}</h6>
+					<h6>WR: {{ item['wr'] }}</h6>
+				</td>
+				</tr>
+				{% endfor %}
+			</table>
+			<table>
+				<thead>
+					<tr>
+						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Paired Skill</h5>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<img class="responsive-img" src="http://cdn.dota2.com/apps/dota2/images/abilities/sven_storm_bolt_hp1.png?v=3478809">
+					</td>
+					<td>
+						<p>Storm Bolt</p>
+						<p>WR: 0.0000</p>
+					</td>
+				</tr>
+			</table>
+			</div>
+		</div>
+
+
+
 
 	</div>
 </div>

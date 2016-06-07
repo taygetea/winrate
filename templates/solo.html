@@ -1,37 +1,115 @@
 {% extends "base_template.html" %}
 {% block body %}
 
-<div class="container grey darken-4 z-depth-2" style="padding: 2vh">
-    {% for thumb in thumbs %}
-    <a href="{{ request.path }}/{{ thumbids[loop.index0] }}/foe">
-    	<img class="hoverable" src={{ thumb }}>
-    </a>
-    {% endfor %}
-</div>
-<div class="container">
+<div class="container grey darken-4 z-depth-2" style="padding-left: 1rem">
 	<div class="row">
-		<div class="col s4 m4 grey darken-4 z-depth-2" style="margin-left: 0.75rem;">
-			<h5>{{ pl1['name']}}</h5>
-			<img class="responsive-img" src={{ pl1['img']}}>
+		<div class="col s4">
+			<div class="section">
+				<p>Strength</p>
+				{% for thumb in str1 %}
+					<a href="{{ request.path }}/{{ str1ids[loop.index0] }}/foe">
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+			<div class="section">
+				{% for thumb in str2 %}
+					<a href="{{ request.path }}/{{ str2ids[loop.index0] }}/foe">
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="col s4">
+			<div class="section">
+				<p>Agility</p>
+				{% for thumb in agi1 %}
+					<a href="{{ request.path }}/{{ agi1ids[loop.index0] }}/foe">
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+			<div class="section">
+				{% for thumb in agi2 %}
+					<a href="{{ request.path }}/{{ agi2ids[loop.index0] }}/foe">
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="col s4">
+			<div class="section">
+				<p>Intelligence</p>
+				{% for thumb in int1 %}
+					<<a href="{{ request.path }}/{{ int1ids[loop.index0] }}/foe">
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+			<div class="section">
+				{% for thumb in int2 %}
+					<a href="{{ request.path }}/{{ int2ids[loop.index0] }}/foe">
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container grey darken-4 z-depth-2">
+	<div class="row">
+		<div id="lefthero" class="col s3 m3">
+			<div class="section">
+				<h5>{{ pl1['name']}}</h5>
+				<img class="responsive-img" src={{ pl1['img']}}>
+			</div>
 			<div class="section left">
 			<table>
-				<tbody>
-					{% for item in items %}
+				<thead>
 					<tr>
-					<td style="padding-top: 5px; padding-bottom: 5px;">
-						<img class="responsive-img" src={{ item['url'] }}>
-					</td>
-					<td style="padding-top: 5px; padding-bottom: 5px;">
-						<p>{{ item['name'] }}</p>
-						<p>WR: {{ item['wr'] }}</p>
-					</td>
+						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5>
 					</tr>
-					{% endfor %}
-				</tbody>
+				</thead>
+				{% for item in items %}
+				<tr>
+				<td>
+					<img class="responsive-img" src={{ item['url'] }}>
+				</td>
+				<td>
+					<p>{{ item['name'] }}</p>
+					<p>WR: {{ item['wr'] }}</p>
+				</td>
+				</tr>
+				{% endfor %}
+			</table>
+			<table>
+				<thead>
+					<tr>
+						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Skill</h5>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<img class="responsive-img" src="http://cdn.dota2.com/apps/dota2/images/abilities/sven_storm_bolt_hp1.png?v=3478809">
+					</td>
+					<td>
+						<p>Storm Bolt</p>
+						<p>WR: 0.0000</p>
+					</td>
+				</tr>
 			</table>
 			</div>
 		</div>
+	</div>
 </div>
+
+
+
 {% endblock %}
+
+
+
+
 
 
