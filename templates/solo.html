@@ -41,7 +41,7 @@
 			<div class="section">
 				<p>Intelligence</p>
 				{% for thumb in int1 %}
-					<<a href="{{ request.path }}/{{ int1ids[loop.index0] }}/foe">
+					<a href="{{ request.path }}/{{ int1ids[loop.index0] }}/foe">
     					<img src={{ thumb }}>
     				</a>
 				{% endfor %}
