@@ -1,20 +1,20 @@
 {% extends "base_template.html" %}
 {% block body %}
 
-<div class="container grey darken-4 z-depth-2" style="padding-left: 1rem">
+<div class="container main grey darken-4 z-depth-5">
 	<div class="row">
 		<div class="col s4">
 			<div class="section">
-				<p>Strength</p>
+				<h5>Strength</h5>
 				{% for thumb in str1 %}
-					<a href="{{ request.path }}/{{ str1ids[loop.index0] }}/foe">
+					<a class="z-depth-1 tooltipped" href="{{ request.path }}/{{ str1ids[loop.index0] }}/foe" data-position="top" data-delay="5", data-tooltip={{ str1names[loop.index0] }}>
     					<img src={{ thumb }}>
     				</a>
 				{% endfor %}
 			</div>
 			<div class="section">
 				{% for thumb in str2 %}
-					<a href="{{ request.path }}/{{ str2ids[loop.index0] }}/foe">
+					<a class="z-depth-1 tooltipped" href="{{ request.path }}/{{ str2ids[loop.index0] }}/foe" data-position="top" data-delay="5", data-tooltip={{ str2names[loop.index0] }}>
     					<img src={{ thumb }}>
     				</a>
 				{% endfor %}
@@ -22,16 +22,16 @@
 		</div>
 		<div class="col s4">
 			<div class="section">
-				<p>Agility</p>
+				<h5>Agility</h5>
 				{% for thumb in agi1 %}
-					<a href="{{ request.path }}/{{ agi1ids[loop.index0] }}/foe">
+					<a class="z-depth-1 tooltipped" href="{{ request.path }}/{{ agi1ids[loop.index0] }}/foe" data-position="top" data-delay="5", data-tooltip={{ agi1names[loop.index0] }}>
     					<img src={{ thumb }}>
     				</a>
 				{% endfor %}
 			</div>
 			<div class="section">
 				{% for thumb in agi2 %}
-					<a href="{{ request.path }}/{{ agi2ids[loop.index0] }}/foe">
+					<a class="z-depth-1 tooltipped" href="{{ request.path }}/{{ agi2ids[loop.index0] }}/foe" data-position="top" data-delay="5", data-tooltip={{ agi2names[loop.index0] }}>
     					<img src={{ thumb }}>
     				</a>
 				{% endfor %}
@@ -39,29 +39,29 @@
 		</div>
 		<div class="col s4">
 			<div class="section">
-				<p>Intelligence</p>
+				<h5>Intelligence</h5>
 				{% for thumb in int1 %}
-					<a href="{{ request.path }}/{{ int1ids[loop.index0] }}/foe">
+					<a class="z-depth-1 tooltipped" href="{{ request.path }}/{{ int1ids[loop.index0] }}/foe" data-position="top" data-delay="5", data-tooltip={{ int1names[loop.index0] }}>
     					<img src={{ thumb }}>
     				</a>
 				{% endfor %}
 			</div>
 			<div class="section">
 				{% for thumb in int2 %}
-					<a href="{{ request.path }}/{{ int2ids[loop.index0] }}/foe">
+					<a class="z-depth-1 tooltipped" href="{{ request.path }}/{{ int2ids[loop.index0] }}/foe" data-position="top" data-delay="5", data-tooltip={{ int2names[loop.index0] }}>
     					<img src={{ thumb }}>
     				</a>
 				{% endfor %}
 			</div>
 		</div>
 	</div>
-</div>
 
-<div class="container grey darken-4 z-depth-2">
+
+
 	<div class="row">
 		<div id="lefthero" class="col s3 m3">
 			<div class="section">
-				<h5>{{ pl1['name']}}</h5>
+				<h4 style="font-size: 2rem;">{{ pl1['name']}}</h4>
 				<img class="responsive-img" src={{ pl1['img']}}>
 			</div>
 			<div class="section left">
@@ -71,7 +71,7 @@
 						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5>
 					</tr>
 				</thead>
-				{% for item in items %}
+				{% for item in items1 %}
 				<tr>
 				<td>
 					<img class="responsive-img" src={{ item['url'] }}>
@@ -86,16 +86,16 @@
 			<table>
 				<thead>
 					<tr>
-						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Skill</h5>
+						<h5 style="font-size: 1.3rem;">Best Solo Skill</h5>
 					</tr>
 				</thead>
 				<tr>
 					<td>
-						<img class="responsive-img" src="http://cdn.dota2.com/apps/dota2/images/abilities/sven_storm_bolt_hp1.png?v=3478809">
+						<img class="responsive-img" src={{ skill1['url'] }}>
 					</td>
 					<td>
-						<p>Storm Bolt</p>
-						<p>WR: 0.0000</p>
+						<p>{{ skill1['name'] }}</p>
+						<p>WR: {{ skill1['wr'] }}</p>
 					</td>
 				</tr>
 			</table>
