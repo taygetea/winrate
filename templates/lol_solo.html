@@ -4,10 +4,10 @@
 <div class="container main grey darken-4 z-depth-5">
 	<div class="row">
 		<div>
-			<h5>Champions</h5>
+			<h5 class="center-align">Champions</h5>
 			{% for thumb in thumbs %}
 				<a class="z-depth-1 tooltipped" href={{ request.path }}/{{ thumb['id'] }}/foe data-position="top" data-delay="5", data-tooltip={{ thumb['localized_name'] }}>
-					<img width=59px src={{ thumb['url_full_portrait'] }}>
+					<img width=50px src={{ thumb['url_full_portrait'] }}>
 				</a>
 			{% endfor %}
 		</div>
@@ -40,6 +40,10 @@
 			</table>
 			
 			</div>
+		</div>
+		<div class="card-panel orange darken-3 white-text z-depth-4 col s4 offset-s2">
+		<h5>I'm a placeholder!</h5>
+		Soon, all of {{ pl1['name']}}'s best friends (and worst frenemies) will be shown here.
 		</div>
 	</div>
 </div>

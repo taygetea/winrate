@@ -32,7 +32,9 @@
   	padding-bottom: 5px;
   }
 
-  
+  main {
+    flex: 1 0 auto;
+  }
 
   nav {
   	background-color: #212121;
@@ -55,9 +57,11 @@
   
   .friend {
   	background-color: #00441B;
+    box-shadow: 0 8px 18px 0 #fafafa,0 2px 10px 0 rgba(0,0,0,0.12);
   }
   .foe {
   	background-color: #5F1200;
+    box-shadow: 0 8px 18px 0 #fafafa,0 2px 10px 0 rgba(0,0,0,0.12);
   }
   .foe-disabled {
   	background-color: #78625C;
@@ -71,24 +75,51 @@
   {% endblock %}
 </head>
 <body>
-<div class="navbar-fixed">
-    <nav class="top-nav z-depth-1">
-        <div class="container nav-text">
-        <!-- Navbar at top of page -->
-            <div class="nav-wrapper nav-text">
-                <a href="/" class="brand-logo left grey-text">Win Rates</a>
-                <ul id="nav-mobile" class="right">
-                    <li><a href="/about" class="grey-text">About</a></li>
-                    <li><a href="/blog" class="grey-text">Blog</a></li>
-                    <li><a href="/contact" class="grey-text">Contact</a></li>
+<header>
+    <div class="navbar-fixed">
+        <nav class="top-nav z-depth-1">
+            <div class="container nav-text">
+            <!-- Navbar at top of page -->
+                <div class="nav-wrapper nav-text">
+                    <a href="/" class="brand-logo left grey-text">Win Rates</a>
+                    <ul id="nav-mobile" class="right">
+                        <li><a href="/dota" class="grey-text">Dota Stats</a></li>
+                        <li><a href="/league" class="grey-text">League Stats</a></li>
+                        <li><a href="/about" class="grey-text">About</a></li>
+                        <li><a href="/blog" class="grey-text">Blog</a></li>
+                        <li><a href="/contact" class="grey-text">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<main>
+{% block body %}
+{% endblock %}
+</main>
+<footer class="page-footer grey darken-4" style="margin-top: 10vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <p class="grey-text"> This website isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
+                <p class="grey-text">Dota 2 is a registered trademark of Valve Corporation. This site is not affiliated with Valve Corporation. All game images and names are property of Valve Corporation.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a href="mailto:david.h.jones37@gmail.com">David Jones</a> - Data Scientist</li>
+                  <li><a href="mailto:taygetea@gmail.com">Olivia Schaefer</a> - Web Developer</li>
                 </ul>
             </div>
         </div>
-    </nav>
-</div>
-
-{% block body %}
-{% endblock %}
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2016 Copyright Text
+        </div>
+    </div>
+</footer>
 </body>
 
 </html>

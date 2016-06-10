@@ -23,16 +23,16 @@
 <div class="container main grey darken-4 z-depth-5">
 	<div class="row">
 		<div>
-			<h5>Champions</h5>
+			<h5 class="center-align">Champions</h5>
 			{% for thumb in thumbs %}
-				<a class="z-depth-1 tooltipped" href=/{{ thumb['id'] }} data-position="top" data-delay="5", data-tooltip={{ thumb['localized_name'] }}>
-					<img width=59px src={{ thumb['url_full_portrait'] }}>
+				<a class="z-depth-1 tooltipped" href=/league/{{ thumb['id'] }} data-position="top" data-delay="5", data-tooltip={{ thumb['localized_name'] }}>
+					<img width=50px src={{ thumb['url_full_portrait'] }}>
 				</a>
 			{% endfor %}
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row" id="main">
 		<div class="col l4 m12">
 			{% if view == "foe" %}
 			<h3 style="margin-top: 0px;">Opponents</h3>
@@ -65,7 +65,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div id="main" class="col l3 m6">
+		<div class="col l3 m6">
 			
 			<div class="section left">
 			<table>
@@ -100,7 +100,7 @@
 			</div>
 		</div>
 
-		<div id="main" class="col l3 m6">
+		<div class="col l3 m6">
 			<div class="section left">
 
 			<table>

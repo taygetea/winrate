@@ -1,11 +1,13 @@
 import pandas as pd
 
-heroes = pd.read_csv('LoLherourl.csv', index_col=0)
-solo = pd.read_csv('solo.csv')
-items = pd.read_csv('allitems.csv')
-foes = pd.read_csv('opponents.csv')
-friends = pd.read_csv('teammates.csv')
-
+heroes = pd.read_csv('dotadata/heroes.csv')
+solo = pd.read_csv('dotadata/solo.csv')
+items = pd.read_csv('dotadata/allitems.csv')
+foes = pd.read_csv('dotadata/opponents.csv')
+friends = pd.read_csv('dotadata/teammates.csv')
+skills = pd.read_csv('dotadata/skills.csv')
+skills['id'] = pd.merge(heroes, skills, left_on=["localized_name"], right_on=["name"])['id']
+skills['key'] = pd.Series(["Q", "W", "E"]*len(pd.unique(skills['id'])))
 
 
 thumbs = [
@@ -135,25 +137,23 @@ thumbnames = [['Earthshaker',
 
 
 thumbargs = {"str1": thumbs[0], 
- 			"str1ids": thumbids[0],
- 			"str1names": thumbnames[0],
-   			"str2": thumbs[1], 
-   			"str2ids": thumbids[1],
-   			"str2names": thumbnames[1],
-   			"agi1": thumbs[2], 
-   			"agi1ids": thumbids[2],
-   			"agi1names": thumbnames[2],
-   			"agi2": thumbs[3], 
-   			"agi2ids": thumbids[3],
-   			"agi2names": thumbnames[3],
-   			"int1": thumbs[4], 
-   			"int1ids": thumbids[4],
-   			"int1names": thumbnames[4],
-   			"int2": thumbs[5], 
-   			"int2ids": thumbids[5],
-   			"int2names": thumbnames[5]}
-
-thumbs = [dict(heroes.sort_values(by="localized_name").iloc[i]) for i in range(len(heroes))]
+            "str1ids": thumbids[0],
+            "str1names": thumbnames[0],
+            "str2": thumbs[1], 
+            "str2ids": thumbids[1],
+            "str2names": thumbnames[1],
+            "agi1": thumbs[2], 
+            "agi1ids": thumbids[2],
+            "agi1names": thumbnames[2],
+            "agi2": thumbs[3], 
+            "agi2ids": thumbids[3],
+            "agi2names": thumbnames[3],
+            "int1": thumbs[4], 
+            "int1ids": thumbids[4],
+            "int1names": thumbnames[4],
+            "int2": thumbs[5], 
+            "int2ids": thumbids[5],
+            "int2names": thumbnames[5]}
 
 
 def pdextract(row, col):
@@ -172,21 +172,55 @@ def getitems(row):
          "url": urls[i],
          "wr": round(winrate[i], 4)} for i in range(len(itemids))]
     return out
-    
+     
+def soloskill(pid):
+    pid = int(pid)
+    herorow = heroes[heroes.id == pid]
+    solorow = solo.loc[pid]
+    skill = solorow.loc['skill']
+    wr = solorow.loc['skill_WR']
+    name = herorow[skill+"_name"].iloc[0]
+    url = herorow[skill+"_url"].iloc[0]
+    return {"name": name, "url": url, "wr": round(wr, 4)}
+
+
+
+def foeskill(hero1, hero2):
+    hero1, hero2 = int(hero1), int(hero2)
+    herorow = heroes[heroes.id == hero1]
+    pairrow = foes[foes.herocompare == hero2]
+    pairrow = pairrow[pairrow.itemhero == hero1]
+    skill = pairrow['skill'].iloc[0]
+    wr = pairrow['skill_WR'].iloc[0]
+    name = herorow[skill+"_name"].iloc[0]
+    url = herorow[skill+"_url"].iloc[0]
+    return {"name": name, "url": url, "wr": round(wr, 4)}
+
+
+def friendskill(hero1, hero2):
+    hero1, hero2 = int(hero1), int(hero2)
+    herorow = heroes[heroes.id == hero1]
+    pairrow = friends[friends.herocompare == hero2]
+    pairrow = pairrow[pairrow.itemhero == hero1]
+    skill = pairrow['skill'].iloc[0]
+    wr = pairrow['skill_WR'].iloc[0]
+    name = herorow[skill+"_name"].iloc[0]
+    url = herorow[skill+"_url"].iloc[0]
+    return {"name": name, "url": url, "wr": round(wr, 4)}
 
 
 def soloitems(pid):
-    hero = solo[solo['champ'] == int(pid)]
+    hero = solo[solo['hero'] == int(pid)]
     return getitems(hero)
 
 
 def foeitems(hero1, hero2):
-    row = foes[foes['itemchamp'] == int(hero1)][foes['champcompare'] == int(hero2)]
+    row = foes[foes['itemhero'] == int(hero1)][foes['herocompare'] == int(hero2)]
     return getitems(row)
 
 
 def frienditems(hero1, hero2):
-    row = friends[friends['itemchamp'] == int(hero1)][friends['champcompare'] == int(hero2)]
+    row = friends[friends['itemhero'] == int(hero1)][friends['herocompare'] == int(hero2)]
     return getitems(row)
 
 

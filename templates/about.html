@@ -1,0 +1,20 @@
+{% extends "base_template.html" %}
+
+{% block body %}
+
+<div class="container main grey darken-4 z-depth-5">
+	<div class="section">
+		<h4>What this website does</h4>
+		<p>This site is intended to be a resource for cooperative gaming. The other major statistics websites for both Dota and League focus almost entirely on "what can I as a player do to beat the other team". I started this project to try and show that there is still market value in getting players to think "cooperative" instead of only "competitive". This site is definitely a work in progress, so until we get a landing page up, here's how to read it:</p>
+
+		<p>The first click on the hero / champion grid selects the first hero and displays which items to buy in which order along with their winrate, regardless of their teammates or opponents. Suggested item completion order is top to bottom.</p>
+		
+		<p>The second click on the grid shows both solo and paired items for both heroes. The selected two can be displayed as either Foes or Friends (on opposite teams and on the same team) using the buttons with the sword icons. You can use how the items change from solo to paired by looking for differences between the columns. You can think of the Teammates / Opponents view as 1v1 and 2v0.
+
+		<p>For League, I recommend checking out <a href="/league/1/112/foe">Annie / Viktor</a> as friends and foes - without being informed about support or carry roles my algorithm picks up on the winning trend of Annie buying support items when paired with Viktor and carry items when fighting him.</p>
+
+		<p>For Dota, I recommend <a href="/dota/63/84/foe">Weaver / Ogre Magi</a> - when they're opponents my algorithm suggests Linkens earlier since it deals with Ogre. When they're on the same team the build changes back towards 'normal'</p>
+
+	</div>
+</div>
+{% endblock %}

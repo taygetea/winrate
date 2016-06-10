@@ -1,0 +1,60 @@
+{% extends "base_template.html" %}
+
+{% block body %}
+
+<div class="container main grey darken-4 z-depth-5">
+	<div class="row">
+		<div class="col s4">
+			<div class="section">
+				<h5>Strength</h5>
+				{% for thumb in str1 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ str1ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ str1names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+			<div class="section">
+				{% for thumb in str2 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ str2ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ str2names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="col s4">
+			<div class="section">
+				<h5>Agility</h5>
+				{% for thumb in agi1 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ agi1ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ agi1names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+			<div class="section">
+				{% for thumb in agi2 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ agi2ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ agi2names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="col s4">
+			<div class="section">
+				<h5>Intelligence</h5>
+				{% for thumb in int1 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ int1ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ int1names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+			<div class="section">
+				{% for thumb in int2 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ int2ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ int2names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

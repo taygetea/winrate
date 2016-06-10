@@ -20,15 +20,62 @@
 {% endblock %}
 {% block body %}
 
+
+
+
+
 <div class="container main grey darken-4 z-depth-5">
 	<div class="row">
-		<div>
-			<h5>Champions</h5>
-			{% for thumb in thumbs %}
-				<a class="z-depth-1 tooltipped" href=/{{ thumb['id'] }} data-position="top" data-delay="5", data-tooltip={{ thumb['localized_name'] }}>
-					<img width=59px src={{ thumb['url_full_portrait'] }}>
-				</a>
-			{% endfor %}
+		<div class="col s4">
+			<div class="section">
+				<h5>Strength</h5>
+				{% for thumb in str1 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ str1ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ str1names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+			<div class="section">
+				{% for thumb in str2 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ str2ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ str2names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="col s4">
+			<div class="section">
+				<h5>Agility</h5>
+				{% for thumb in agi1 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ agi1ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ agi1names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+			<div class="section">
+				{% for thumb in agi2 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ agi2ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ agi2names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="col s4">
+			<div class="section">
+				<h5>Intelligence</h5>
+				{% for thumb in int1 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ int1ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ int1names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
+			<div class="section">
+				{% for thumb in int2 %}
+					<a class="z-depth-1 tooltipped" href=/dota/{{ int2ids[loop.index0] }} data-position="top" data-delay="5", data-tooltip={{ int2names[loop.index0] }}>
+    					<img src={{ thumb }}>
+    				</a>
+				{% endfor %}
+			</div>
 		</div>
 	</div>
 
@@ -58,10 +105,20 @@
 		<div class="col s6">
 			<h4 style="font-size: 2rem;">{{ pl1['name']}}</h4>
 			<img class="responsive-img" src={{ pl1['img']}}>
+			<h6>
+			<a class="orange-text text-lighten-2" href=https://www.dota2.com/store/#h={{ id1 }}&cat=3634838168>
+				Use this link to buy a set for your friend.
+			</a>
+			</h6>
 		</div>
 		<div class="col s6">
 			<h4 style="font-size: 2rem;">{{ pl2['name']}}</h4>
 			<img class="responsive-img" src={{ pl2['img']}}>
+			<h6>
+			<a class="orange-text text-lighten-2" href=https://www.dota2.com/store/#h={{ id1 }}&cat=3634838168>
+				Use this link to buy a set for your friend.
+			</a>
+			</h6>
 		</div>
 	</div>
 	<div class="row">
@@ -78,6 +135,15 @@
 				<td><h6>{{ item['name'] }}</h6><h6>WR: {{ item['wr'] }}</h6></td>
 				</tr>
 				{% endfor %}
+			</table>
+			<table>
+				<thead>
+					<tr><h5 style="font-size: 1.3rem;">Best Solo Skill</h5></tr>
+				</thead>
+				<tr>
+					<td><img class="responsive-img" src={{ skill1['url'] }}></td>
+					<td><p>{{ skill1['name'] }}</p><p>WR: {{ skill1['wr'] }}</p></td>
+				</tr>
 			</table>
 			</div>
 		</div>
@@ -97,6 +163,15 @@
 				</tr>
 				{% endfor %}
 			</table>
+			<table>
+				<thead>
+					<tr><h5 style="font-size: 1.3rem;">Best Paired Skill</h5></tr>
+				</thead>
+				<tr>
+					<td><img class="responsive-img" src={{ other_skill1['url'] }}></td>
+					<td><p>{{ other_skill1['name'] }}</p><p>WR: {{ other_skill1['wr'] }}</p></td>
+				</tr>
+			</table>
 			</div>
 		</div>
 
@@ -114,6 +189,15 @@
 				</tr>
 				{% endfor %}
 			</table>
+			<table>
+				<thead>
+					<tr><h5 style="font-size: 1.3rem;">Best Solo Skill</h5></tr>
+				</thead>
+				<tr>
+					<td><img class="responsive-img" src={{ skill2['url'] }}></td>
+					<td><p>{{ skill2['name'] }}</p><p>WR: {{ skill2['wr'] }}</p></td>
+				</tr>
+			</table>
 			</div>
 		</div>
 
@@ -129,6 +213,15 @@
 				<td><h6>{{ item['name'] }}</h6><h6>WR: {{ item['wr'] }}</h6></td>
 				</tr>
 				{% endfor %}
+			</table>
+			<table>
+				<thead>
+					<tr><h5 style="font-size: 1.3rem;">Best Solo Skill</h5></tr>
+				</thead>
+				<tr>
+					<td><img class="responsive-img" src={{ other_skill2['url'] }}></td>
+					<td><p>{{ other_skill2['name'] }}</p><p>WR: {{ other_skill2['wr'] }}</p></td>
+				</tr>
 			</table>
 			</div>
 		</div>
