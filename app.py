@@ -16,6 +16,11 @@ def index():
 @app.route('/about')
 def about():
     return render_template("about.html")
+
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
+
 @app.route('/dota')
 def dland():
     return render_template("dota_landing.html",
@@ -128,4 +133,4 @@ def ljoint(id, id2, view):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0")
