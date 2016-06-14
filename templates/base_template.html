@@ -1,19 +1,14 @@
 <html>
 <head>
 	  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
   <link href='https://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
   <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-  <script>
-  	window.onload = function() {
-  		Materialize.showStaggeredList('#transition');
-  		Materialize.showStaggeredList('#transition2');
-	};
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.js"></script>
+  
   <style type="text/css">
   body {
   	background: #263238;
@@ -48,8 +43,13 @@
   	position: absolute;
   	left: 50%;
   	right: 50%;
-  	
   }
+
+  .grid {
+    max-width: 250px;
+  }
+
+  
 
   .main {
     padding: 2vh;
@@ -81,8 +81,8 @@
             <div class="container nav-text">
             <!-- Navbar at top of page -->
                 <div class="nav-wrapper nav-text">
-                    <a href="/" class="brand-logo left grey-text">Win Rates</a>
                     <ul id="nav-mobile" class="right">
+                        <li><a href="/" class="grey-text">Home</a></li>
                         <li><a href="/dota" class="grey-text">Dota Stats</a></li>
                         <li><a href="/league" class="grey-text">League Stats</a></li>
                         <li><a href="/about" class="grey-text">About</a></li>
@@ -116,7 +116,7 @@
     </div>
     <div class="footer-copyright">
         <div class="container">
-            © 2016 Copyright Text
+            © 2016 David Jones and Olivia Schaefer
         </div>
     </div>
 </footer>

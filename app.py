@@ -8,6 +8,7 @@ import dotahelpers
 
 app = Flask(__name__)
 
+colnames = ["Strength", "Agility", "Intelligence"]
 
 @app.route('/')
 def index():
@@ -24,7 +25,8 @@ def contact():
 @app.route('/dota')
 def dland():
     return render_template("dota_landing.html",
-        **dotahelpers.thumbargs)
+        colnames = ["Strength", "Agility", "Intelligence"],
+        thumbargs = dotahelpers.thumbargs)
 
 @app.route('/dota/<id>')
 def dsolopage(id):
@@ -37,12 +39,15 @@ def dsolopage(id):
         id1 = id,
         items1=items, 
         skill1 = skill,
-        **dotahelpers.thumbargs)
+        colnames = ["Strength", "Agility", "Intelligence"],
+        thumbargs = dotahelpers.thumbargs)
 
 
 @app.route('/dota/<id>/<id2>')
 def dpair(id, id2):
-    return redirect("/%s/%s/foe" % (id, id2))
+    if id == id2:
+        return redirect("/dota/%s" % id)
+    return redirect("/dota/%s/%s/foe" % (id, id2))
 
 @app.route('/dota/<id>/<id2>/<view>')
 def djoint(id, id2, view):
@@ -55,11 +60,13 @@ def djoint(id, id2, view):
     skill1 = dotahelpers.soloskill(id)
     skill2 = dotahelpers.soloskill(id2)
     if view == "foe":
+        notview = "friend"
         other_skill1 = dotahelpers.foeskill(id, id2)
         other_skill2 = dotahelpers.foeskill(id2, id)
         other_items1 = dotahelpers.foeitems(id, id2)
         other_items2 = dotahelpers.foeitems(id2, id)
     elif view == "friend":
+        notview = "foe"
         other_skill1 = dotahelpers.friendskill(id, id2)
         other_skill2 = dotahelpers.friendskill(id2, id)
         other_items1 = dotahelpers.frienditems(id, id2)
@@ -81,7 +88,9 @@ def djoint(id, id2, view):
         other_skill1 = other_skill1,
         other_skill2 = other_skill2,
         view = view,
-        **dotahelpers.thumbargs)
+        notview = notview,
+        colnames = ["Strength", "Agility", "Intelligence"],
+        thumbargs = dotahelpers.thumbargs)
 
 @app.route('/league')
 def lland():
@@ -133,4 +142,4 @@ def ljoint(id, id2, view):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug=True)
