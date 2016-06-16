@@ -1,0 +1,133 @@
+   ,url_full_portrait                                                          ,localized_name,id ,name        
+   
+1  ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Annie.png       ,Annie         ,1  ,Annie       
+2  ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Olaf.png        ,Olaf          ,2  ,Olaf        
+3  ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Galio.png       ,Galio         ,3  ,Galio       
+4  ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/TwistedFate.png ,Twisted Fate  ,4  ,TwistedFate 
+5  ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/XinZhao.png     ,Xin Zhao      ,5  ,XinZhao     
+6  ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Urgot.png       ,Urgot         ,6  ,Urgot       
+7  ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Leblanc.png     ,LeBlanc       ,7  ,Leblanc     
+8  ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Vladimir.png    ,Vladimir      ,8  ,Vladimir    
+9  ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/FiddleSticks.png,Fiddlesticks  ,9  ,FiddleSticks
+10 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Kayle.png       ,Kayle         ,10 ,Kayle       
+11 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/MasterYi.png    ,Master Yi     ,11 ,MasterYi    
+12 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Alistar.png     ,Alistar       ,12 ,Alistar     
+13 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Ryze.png        ,Ryze          ,13 ,Ryze        
+14 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Sion.png        ,Sion          ,14 ,Sion        
+15 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Sivir.png       ,Sivir         ,15 ,Sivir       
+16 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Soraka.png      ,Soraka        ,16 ,Soraka      
+17 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Teemo.png       ,Teemo         ,17 ,Teemo       
+18 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Tristana.png    ,Tristana      ,18 ,Tristana    
+19 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Warwick.png     ,Warwick       ,19 ,Warwick     
+20 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Nunu.png        ,Nunu          ,20 ,Nunu        
+21 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/MissFortune.png ,Miss Fortune  ,21 ,MissFortune 
+22 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Ashe.png        ,Ashe          ,22 ,Ashe        
+23 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Tryndamere.png  ,Tryndamere    ,23 ,Tryndamere  
+24 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Jax.png         ,Jax           ,24 ,Jax         
+25 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Morgana.png     ,Morgana       ,25 ,Morgana     
+26 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Zilean.png      ,Zilean        ,26 ,Zilean      
+27 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Singed.png      ,Singed        ,27 ,Singed      
+28 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Evelynn.png     ,Evelynn       ,28 ,Evelynn     
+29 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Twitch.png      ,Twitch        ,29 ,Twitch      
+30 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Karthus.png     ,Karthus       ,30 ,Karthus     
+31 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Chogath.png     ,Cho'Gath      ,31 ,Chogath     
+32 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Amumu.png       ,Amumu         ,32 ,Amumu       
+33 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Rammus.png      ,Rammus        ,33 ,Rammus      
+34 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Anivia.png      ,Anivia        ,34 ,Anivia      
+35 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Shaco.png       ,Shaco         ,35 ,Shaco       
+36 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/DrMundo.png     ,Dr. Mundo     ,36 ,DrMundo     
+37 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Sona.png        ,Sona          ,37 ,Sona        
+38 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Kassadin.png    ,Kassadin      ,38 ,Kassadin    
+39 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Irelia.png      ,Irelia        ,39 ,Irelia      
+40 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Janna.png       ,Janna         ,40 ,Janna       
+41 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Gangplank.png   ,Gangplank     ,41 ,Gangplank   
+42 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Corki.png       ,Corki         ,42 ,Corki       
+43 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Karma.png       ,Karma         ,43 ,Karma       
+44 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Taric.png       ,Taric         ,44 ,Taric       
+45 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Veigar.png      ,Veigar        ,45 ,Veigar      
+48 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Trundle.png     ,Trundle       ,48 ,Trundle     
+50 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Swain.png       ,Swain         ,50 ,Swain       
+51 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Caitlyn.png     ,Caitlyn       ,51 ,Caitlyn     
+53 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Blitzcrank.png  ,Blitzcrank    ,53 ,Blitzcrank  
+54 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Malphite.png    ,Malphite      ,54 ,Malphite    
+55 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Katarina.png    ,Katarina      ,55 ,Katarina    
+56 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Nocturne.png    ,Nocturne      ,56 ,Nocturne    
+57 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Maokai.png      ,Maokai        ,57 ,Maokai      
+58 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Renekton.png    ,Renekton      ,58 ,Renekton    
+59 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/JarvanIV.png    ,Jarvan IV     ,59 ,JarvanIV    
+60 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Elise.png       ,Elise         ,60 ,Elise       
+61 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Orianna.png     ,Orianna       ,61 ,Orianna     
+62 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/MonkeyKing.png  ,Wukong        ,62 ,MonkeyKing  
+63 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Brand.png       ,Brand         ,63 ,Brand       
+64 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/LeeSin.png      ,Lee Sin       ,64 ,LeeSin      
+67 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Vayne.png       ,Vayne         ,67 ,Vayne       
+68 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Rumble.png      ,Rumble        ,68 ,Rumble      
+69 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Cassiopeia.png  ,Cassiopeia    ,69 ,Cassiopeia  
+72 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Skarner.png     ,Skarner       ,72 ,Skarner     
+74 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Heimerdinger.png,Heimerdinger  ,74 ,Heimerdinger
+75 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Nasus.png       ,Nasus         ,75 ,Nasus       
+76 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Nidalee.png     ,Nidalee       ,76 ,Nidalee     
+77 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Udyr.png        ,Udyr          ,77 ,Udyr        
+78 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Poppy.png       ,Poppy         ,78 ,Poppy       
+79 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Gragas.png      ,Gragas        ,79 ,Gragas      
+80 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Pantheon.png    ,Pantheon      ,80 ,Pantheon    
+81 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Ezreal.png      ,Ezreal        ,81 ,Ezreal      
+82 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Mordekaiser.png ,Mordekaiser   ,82 ,Mordekaiser 
+83 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Yorick.png      ,Yorick        ,83 ,Yorick      
+84 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Akali.png       ,Akali         ,84 ,Akali       
+85 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Kennen.png      ,Kennen        ,85 ,Kennen      
+86 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Garen.png       ,Garen         ,86 ,Garen       
+89 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Leona.png       ,Leona         ,89 ,Leona       
+90 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Malzahar.png    ,Malzahar      ,90 ,Malzahar    
+91 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Talon.png       ,Talon         ,91 ,Talon       
+92 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Riven.png       ,Riven         ,92 ,Riven       
+96 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/KogMaw.png      ,Kog'Maw       ,96 ,KogMaw      
+98 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Shen.png        ,Shen          ,98 ,Shen        
+99 ,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Lux.png         ,Lux           ,99 ,Lux         
+101,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Xerath.png      ,Xerath        ,101,Xerath      
+102,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Shyvana.png     ,Shyvana       ,102,Shyvana     
+103,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Ahri.png        ,Ahri          ,103,Ahri        
+104,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Graves.png      ,Graves        ,104,Graves      
+105,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Fizz.png        ,Fizz          ,105,Fizz        
+106,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Volibear.png    ,Volibear      ,106,Volibear    
+107,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Rengar.png      ,Rengar        ,107,Rengar      
+110,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Varus.png       ,Varus         ,110,Varus       
+111,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Nautilus.png    ,Nautilus      ,111,Nautilus    
+112,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Viktor.png      ,Viktor        ,112,Viktor      
+113,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Sejuani.png     ,Sejuani       ,113,Sejuani     
+114,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Fiora.png       ,Fiora         ,114,Fiora       
+115,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Ziggs.png       ,Ziggs         ,115,Ziggs       
+117,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Lulu.png        ,Lulu          ,117,Lulu        
+119,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Draven.png      ,Draven        ,119,Draven      
+120,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Hecarim.png     ,Hecarim       ,120,Hecarim     
+121,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Khazix.png      ,Kha'Zix       ,121,Khazix      
+122,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Darius.png      ,Darius        ,122,Darius      
+126,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Jayce.png       ,Jayce         ,126,Jayce       
+127,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Lissandra.png   ,Lissandra     ,127,Lissandra   
+131,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Diana.png       ,Diana         ,131,Diana       
+133,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Quinn.png       ,Quinn         ,133,Quinn       
+134,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Syndra.png      ,Syndra        ,134,Syndra      
+136,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/AurelionSol.png ,Aurelion Sol  ,136,AurelionSol 
+143,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Zyra.png        ,Zyra          ,143,Zyra        
+150,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Gnar.png        ,Gnar          ,150,Gnar        
+154,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Zac.png         ,Zac           ,154,Zac         
+157,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Yasuo.png       ,Yasuo         ,157,Yasuo       
+161,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Velkoz.png      ,Vel'Koz       ,161,Velkoz      
+163,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Taliyah.png     ,Taliyah       ,163,Taliyah     
+201,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Braum.png       ,Braum         ,201,Braum       
+202,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Jhin.png        ,Jhin          ,202,Jhin        
+203,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Kindred.png     ,Kindred       ,203,Kindred     
+222,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Jinx.png        ,Jinx          ,222,Jinx        
+223,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/TahmKench.png   ,Tahm Kench    ,223,TahmKench   
+236,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Lucian.png      ,Lucian        ,236,Lucian      
+238,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Zed.png         ,Zed           ,238,Zed         
+245,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Ekko.png        ,Ekko          ,245,Ekko        
+254,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Vi.png          ,Vi            ,254,Vi          
+266,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Aatrox.png      ,Aatrox        ,266,Aatrox      
+267,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Nami.png        ,Nami          ,267,Nami        
+268,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Azir.png        ,Azir          ,268,Azir        
+412,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Thresh.png      ,Thresh        ,412,Thresh      
+420,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Illaoi.png      ,Illaoi        ,420,Illaoi      
+421,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/RekSai.png      ,Rek'Sai       ,421,RekSai      
+429,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Kalista.png     ,Kalista       ,429,Kalista     
+432,http://ddragon.leagueoflegends.com/cdn/6.11.1/img/champion/Bard.png        ,Bard          ,432,Bard        

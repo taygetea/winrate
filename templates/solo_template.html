@@ -1,0 +1,26 @@
+{% macro input(items, player, skill) %}
+<div class="section left">
+	<table>
+		<thead>
+			<tr><h6 style="margin-top: 0px"><br>General {{ player['name']}} build</h6></tr>
+		</thead>
+		<tr><td><h6>Buy</h6></td><td></td><td><h6>Items</h6></td></tr>
+		{% for item in items1 %}
+		<tr>
+		<td>{{ numerals[loop.index0] }}</td>
+		<td><img class="responsive-img" style="max-height: 36px;" src={{ item['url'] }}></td>
+		<td><h6>{{ item['name'] }}<br>WR: {{ item['wr'] }}%</h6></td>
+		</tr>
+		{% endfor %}
+	</table>
+	<table>
+		<thead>
+			<tr><h6 style="margin-top: 0px;">Max out this skill first</h6></tr>
+		</thead>
+		<tr>
+			<td><img class="responsive-img" style="max-height: 36px;" src={{ skill['url'] }}></td>
+			<td><h6>{{ skill['name'] }}<br>WR: {{ skill['wr'] }}%</h6></td>
+		</tr>
+	</table>
+</div>
+{% endmacro %}

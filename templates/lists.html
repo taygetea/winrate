@@ -1,0 +1,42 @@
+{% macro input(items, player, type, player2 = '', skill = '') %}
+
+<div class="section left">
+	<table>
+		{% if type == 'solo' %}
+		<thead>
+			<tr><h6 style="margin-top: 0px"><br>General {{ player['name']}} build</h6></tr>
+		</thead>
+		{% elif type == 'friend' %}
+		<thead>
+			<tr><h6 style="margin-top: 0px">{{ player['name'] }} with {{ player2['name'] }}<br>as a <b>TEAMMATE</b></h6></tr>
+		</thead>
+		{% elif type == 'foe' %}
+		<thead>
+			<tr><h6 style="margin-top: 0px">{{ player['name'] }} with {{ player2['name'] }}<br>as an <b>OPPONENT</b></h6></tr>
+		</thead>
+		{% endif %}
+		<tr><td><h6>Buy</h6></td><td></td><td><h6>Items</h6></td></tr>
+		{% for item in items %}
+		<tr>
+			<td>{{ numerals[loop.index0] }}</td>
+			<td><img class="responsive-img" style="max-height: 36px;" src={{ item['url'] }}></td>
+			<td><h6>{{ item['name'] }}<br><span class="amber-text text-accent-3">WR: <b>{{ item['wr'] }}%</b></span></h6></td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% if skill != '' %}
+	<table>
+		<thead>
+			<tr><h6 style="margin-top: 0px;">Max out this skill first</h6></tr>
+		</thead>
+		<tr>
+			<td></td>
+			<td><img class="responsive-img" style="max-height: 36px;" src={{ skill['url'] }}></td>
+			<td><h6>{{ skill['name'] }}<br><span class="amber-text text-accent-3">WR: <b>{{ skill['wr'] }}%</b></span></h6></td>
+		</tr>
+	</table>
+	{% endif %}
+
+</div>
+{% endmacro %}
+

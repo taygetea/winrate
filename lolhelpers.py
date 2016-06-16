@@ -25,7 +25,7 @@ def getitems(row):
         {"id": itemids[i],
          "name": itemnames[i],
          "url": urls[i],
-         "wr": round(winrate[i], 4)} for i in range(len(itemids))]
+         "wr": round(winrate[i], 3)*100} for i in range(len(itemids))]
     return out
     
 

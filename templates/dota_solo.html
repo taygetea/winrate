@@ -1,81 +1,30 @@
+{% import 'lists.html' as lists with context %}
+{% import 'bigimage.html' as bigimage with context %}
+{% import 'herogrid.html' as herogrid with context %}
 {% extends "base_template.html" %}
 {% block body %}
 
 <div class="container main grey darken-4 z-depth-5">
 
-	<div class="row">
-	{% for col in thumbargs %}
-		<div class="col s4">
-		{% set rowloop = loop %}
-		<div class="section"><h5>{{ colnames[loop.index0] }}</h5></div>
-		{% for group in col %}
-			<div class="section grid">
-			{% if group.index0 == 0 %}
-			<h5>{{ colnames[rowloop.index0] }}</h5>
-			{% endif %}
-			{% for hero in group %}
-				<a class="z-depth-1 tooltipped" href=/dota/{{ id1 }}/{{ hero['id'] }} data-position="top" data-delay="5", data-tooltip="{{ hero['name'] }}">
-					<img src={{ hero['img'] }}>
-				</a>
-			{% endfor %}
-			</div>
-		{% endfor %}
-		</div>
-	{% endfor %}
-	</div>
+	{{ herogrid.grid('solo', playerid=pl1) }}
 
+	<a class="anchor" id="top"></a>
+	<div class="row center-align">
+		<h5 style="margin-top: 0px;" id="header">Solo</h5>
+	</div>
 	
-
-	<div class="row">
-		<div class="col l4 m12">
-			<h3 style="margin-top: 0px;">Solo</h3>
-		</div>
+	<div class="row" style="margin-bottom: 0px;">
+		{{ bigimage.image('dota', pl1, id1)}}
 	</div>
 
 	<div class="row">
-		<div id="lefthero" class="col s3 m3">
-			<div class="section">
-				<h4 style="font-size: 2rem;">{{ pl1['name']}}</h4>
-				<img class="responsive-img" src={{ pl1['img']}}>
-				<h6>
-					<a class="orange-text text-lighten-2" href=https://www.dota2.com/store/#h={{ id1 }}&cat=3634838168>
-						Use this link to buy a set for your friend.
-					</a>
-				</h6>
-			</div>
-			<div class="section">
-			<table>
-				<thead>
-					<tr>
-						<h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5>
-					</tr>
-				</thead>
-				{% for item in items1 %}
-				<tr>
-				<td>
-					<img class="responsive-img" src={{ item['url'] }}>
-				</td>
-				<td>
-					<p>{{ item['name'] }}</p>
-					<p>WR: {{ item['wr'] }}</p>
-				</td>
-				</tr>
-				{% endfor %}
-			</table>
-			<table>
-				<thead>
-					<tr><h5 style="font-size: 1.3rem;">Best Solo Skill</h5></tr>
-				</thead>
-				<tr>
-					<td><img class="responsive-img" src={{ skill1['url'] }}></td>
-					<td><p>{{ skill1['name'] }}</p><p>WR: {{ skill1['wr'] }}</p></td>
-				</tr>
-			</table>
-			</div>
+		<div id="main" class="col l3 m6">
+		{{ lists.input(items1, pl1, type='solo', skill=skill1) }}
 		</div>
-		<div class="card-panel orange darken-3 white-text z-depth-4 col s4 offset-s2">
-		<h5>I'm a placeholder!</h5>
-		Soon, all of {{ pl1['name']}}'s best friends (and worst frenemies) will be shown here.
+
+		<div class="card-panel amber darken-4 white-text z-depth-4 col s4 offset-s2">
+			<h5>I'm a placeholder!</h5>
+			Soon, all of {{ pl1['name']}}'s best friends (and worst frenemies) will be shown here.
 		</div>
 	</div>
 </div>

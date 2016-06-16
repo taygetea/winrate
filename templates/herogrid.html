@@ -1,0 +1,22 @@
+{% macro grid(type, playerid = '') %}
+<div class="row">
+{% for col in thumbargs %}
+	<div class="col s4 l3 push-l1">
+	{% set rowloop = loop %}
+	<div class="section"><h5>{{ colnames[loop.index0] }}</h5></div>
+	{% for group in col %}
+		<div class="section grid">
+		{% if group.index0 == 0 %}
+		<h5>{{ colnames[rowloop.index0] }}</h5>
+		{% endif %}
+		{% for hero in group %}
+			<a class="z-depth-1 tooltipped" href="/dota/{% if type == 'solo' %}{{playerid['id']}}/{% endif %}{{ hero['id'] }}" data-position="top" data-delay="5", data-tooltip="{{ hero['name'] }}">
+				<img src={{ hero['img'] }}>
+			</a>
+		{% endfor %}
+		</div>
+	{% endfor %}
+	</div>
+{% endfor %}
+</div>
+{% endmacro %}

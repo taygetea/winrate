@@ -41,14 +41,33 @@
 			
 			</div>
 		</div>
-		<div class="card-panel orange darken-3 white-text z-depth-4 col s4 offset-s2">
+		<div class="card-panel amber accent-3 white-text z-depth-4 col s4 offset-s2">
 		<h5>I'm a placeholder!</h5>
 		Soon, all of {{ pl1['name']}}'s best friends (and worst frenemies) will be shown here.
 		</div>
 	</div>
 </div>
 
+{% import 'lists.html' as lists with context %}
+{% import 'bigimage.html' as bigimage with context %}
+{% import 'herogrid.html' as herogrid with context %}
+<div class="container main grey darken-4 z-depth-5">
 
+	<div class="row" style="margin-bottom: 0px;">
+		{{ bigimage.image('lol', pl1, id1)}}
+	</div>
+
+	<div class="row">
+		<div id="main" class="col l3 m6">
+		{{ lists.input(items1, pl1, type='solo') }}
+		</div>
+
+		<div class="card-panel amber darken-4 white-text z-depth-4 col s4 offset-s2">
+			<h5>I'm a placeholder!</h5>
+			Soon, all of {{ pl1['name']}}'s best friends (and worst frenemies) will be shown here.
+		</div>
+	</div>
+</div>
 
 {% endblock %}
 

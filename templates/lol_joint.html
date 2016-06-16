@@ -1,3 +1,6 @@
+{% import 'lists.html' as lists with context %}
+{% import 'herogrid.html' as herogrid with context %}
+{% import 'bigimage.html' as bigimage with context %}
 {% extends "base_template.html" %}
 {% block headextra %}
 
@@ -32,110 +35,53 @@
 		</div>
 	</div>
 
-	<div class="row" id="main">
-		<div class="col l4 m12">
-			{% if view == "foe" %}
-			<h3 style="margin-top: 0px;">Opponents</h3>
-			{% endif %}
-			{% if view == "friend" %}
-			<h3 style="margin-top: 0px;">Teammates</h3>
-			{% endif %}
-		</div>
-		<div class="col l3 m6 offset-l2">
-    		<h5 style="float: left; margin-top: 5px; margin-right: 10px;">Friend</h5>
-			<a href="friend#main" class="btn waves-effect friend{% if view == 'foe' %}-disabled{% endif %}">
-				<img src="http://taygetea.com/files/friend.png" height="32" style="margin-top: 0.2rem">
-			</a>
-		</div>
-		<div class="col l3 m6">
-    		<h5 style="float: left; margin-top: 5px; margin-right: 10px;">Foe</h5>
-			<a href="foe#main" class="btn waves-effect foe{% if view == 'friend' %}-disabled{% endif %}">
-				<img src="http://taygetea.com/files/foe.png" height="32" style="margin-top: 0.2rem">
-			</a>
-		</div>
+
+
+
+	<a class="anchor" id="top"></a>
+
+	<div class="row center-align">
+		<h5 style="margin-top: 0px;" id="header">{{ 'Opponents' if view == "foe" else 'Teammates' }}</h5>
+		<p style="font-size: 1.2rem">You are currently viewing these two heroes as</p>
+		<div class="switch">
+	    	<label style="font-size: 1.3rem;">
+	    	<span style={{ 'font-weight:bold;' if view == "friend"}}>Teammates</span>
+	    	<input type="checkbox" id="myswitch">
+	    	<span class="lever" onClick='setTimeout(function(){window.location="{{ notview }}#top";}, 300);'></span>
+	    	<span style={{ 'font-weight:bold;' if view == "foe"}}>Opponents</span>
+	    	</label>
+	    </div>
 	</div>
+
+	<div class="row" style="margin-bottom: 0px;">	
+		{{ bigimage.image('lol', pl1, id1, player2=pl2, view=view)}}
+		{{ bigimage.image('lol', pl2, id2, player2=pl1, view=view)}}
+	</div>
+
 	<div class="row">
-		<div class="col s6">
-			<h4 style="font-size: 2rem;">{{ pl1['name']}}</h4>
-			<img class="responsive-img" src={{ pl1['img']}}>
+		<div id="main" class="col l3 m6">
+			{{ lists.input(items1, pl1, type='solo') }}
 		</div>
-		<div class="col s6">
-			<h4 style="font-size: 2rem;">{{ pl2['name']}}</h4>
-			<img class="responsive-img" src={{ pl2['img']}}>
+
+		<div class="col l3 m6">
+			{{ lists.input(other_items1, pl1, type=view, player2=pl2) }}
+		</div>
+
+		<div id="main" class="col l3 m6">
+			{{ lists.input(items2, pl2, type='solo') }}
+		</div>
+
+		<div class="col l3 m6">
+			{{ lists.input(other_items2, pl2, type=view, player2=pl1) }}
 		</div>
 	</div>
-	<div class="row">
-		<div class="col l3 m6">
-			
-			<div class="section left">
-			<table>
-				<thead>
-					<tr><h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5></tr>
-				</thead>
-				{% for item in items1 %}
-				<tr>
-				<td><img class="responsive-img" src={{ item['url'] }}></td>
-				<td><h6>{{ item['name'] }}</h6><h6>WR: {{ item['wr'] }}</h6></td>
-				</tr>
-				{% endfor %}
-			</table>
-			</div>
-		</div>
 
-
-		<div class="col l3 m6">
-			<div class="section">
-			
-			<table>
-				<thead>
-					<tr><h5 style="margin-top: 0px; font-size: 1.3rem;">Best Paired Items</h5></tr>
-				</thead>
-				{% for item in other_items1 %}
-				<tr>
-				<td><img class="responsive-img" src={{ item['url'] }}></td>
-				<td><h6>{{ item['name'] }}</h6><h6>WR: {{ item['wr'] }}</h6></td>
-				</tr>
-				{% endfor %}
-			</table>
-			</div>
-		</div>
-
-		<div class="col l3 m6">
-			<div class="section left">
-
-			<table>
-				<thead>
-					<tr><h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5></tr>
-				</thead>
-				{% for item in items2 %}
-				<tr>
-				<td><img class="responsive-img" src={{ item['url'] }}></td>
-				<td><h6>{{ item['name'] }}</h6><h6>WR: {{ item['wr'] }}</h6></td>
-				</tr>
-				{% endfor %}
-			</table>
-			</div>
-		</div>
-
-		<div class="col l3 m6">
-			<div class="section">
-			<table>
-				<thead>
-					<tr><h5 style="margin-top: 0px; font-size: 1.3rem;">Best Paired Items</h5></tr>
-				</thead>
-				{% for item in other_items2 %}
-				<tr>
-				<td><img class="responsive-img" src={{ item['url'] }}></td>
-				<td><h6>{{ item['name'] }}</h6><h6>WR: {{ item['wr'] }}</h6></td>
-				</tr>
-				{% endfor %}
-			</table>
-			</div>
-		</div>
-
-
-
-
-	</div>
 </div>
+
+{% if view == "foe" %}
+<script>
+$('#myswitch').prop('checked', true)
+</script>
+{% endif %}
+
 {% endblock %}

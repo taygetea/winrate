@@ -6,9 +6,9 @@ solo = pd.read_csv('dotadata/solo.csv')
 items = pd.read_csv('dotadata/allitems.csv')
 foes = pd.read_csv('dotadata/opponents.csv')
 friends = pd.read_csv('dotadata/teammates.csv')
-skills = pd.read_csv('dotadata/skills.csv')
-skills['id'] = pd.merge(heroes, skills, left_on=["localized_name"], right_on=["name"])['id']
-skills['key'] = pd.Series(["Q", "W", "E"]*len(pd.unique(skills['id'])))
+# skills = pd.read_csv('dotadata/skills.csv')
+# skills['id'] = pd.merge(heroes, skills, left_on=["localized_name"], right_on=["name"])['id']
+# skills['key'] = pd.Series(["Q", "W", "E"]*len(pd.unique(skills['id'])))
 
 
 

@@ -1,3 +1,6 @@
+{% import 'lists.html' as lists with context %}
+{% import 'herogrid.html' as herogrid with context %}
+{% import 'bigimage.html' as bigimage with context %}
 {% extends "base_template.html" %}
 {% block headextra %}
 
@@ -22,173 +25,44 @@
 
 
 <div class="container main grey darken-4 z-depth-5">
-	<div class="row">
-	{% for col in thumbargs %}
-		<div class="col s4">
-		{% set rowloop = loop %}
-		<div class="section"><h5>{{ colnames[loop.index0] }}</h5></div>
-		{% for group in col %}
-			<div class="section grid">
-			{% if group.index0 == 0 %}
-			<h5>{{ colnames[rowloop.index0] }}</h5>
-			{% endif %}
-			{% for hero in group %}
-				<a class="z-depth-1 tooltipped" href=/dota/{{ hero['id'] }} data-position="top" data-delay="5", data-tooltip="{{ hero['name'] }}">
-					<img src={{ hero['img'] }}>
-				</a>
-			{% endfor %}
-			</div>
-		{% endfor %}
-		</div>
-	{% endfor %}
-	</div>
+	{{ herogrid.grid('pair') }}
 
-	
+	<a class="anchor" id="top"></a>
+
 	<div class="row center-align">
-		{% if view == "foe" %}
-		<h5 style="margin-top: 0px;" id="header">Opponents</h5>
-		{% endif %}
-		{% if view == "friend" %}
-		<h5 style="margin-top: 0px;" id="header">Teammates</h5>
-		{% endif %}
-		<p>Switch to viewing these two heroes as</p>
+		<h5 style="margin-top: 0px;" id="header">{{ 'Opponents' if view == "foe" else 'Teammates' }}</h5>
+		<p style="font-size: 1.2rem">You are currently viewing these two heroes as</p>
 		<div class="switch">
-	    	<label>
-	    	<b>Teammates</b>
+	    	<label style="font-size: 1.3rem;">
+	    	<span style={{ 'font-weight:bold;' if view == "friend"}}>Teammates</span>
 	    	<input type="checkbox" id="myswitch">
-	    	<span class="lever" onClick='setTimeout(function(){window.location="{{ notview }}#header";}, 300);'></span>
-	    	<b>Opponents</b>
+	    	<span class="lever" onClick='setTimeout(function(){window.location="{{ notview }}#top";}, 300);'></span>
+	    	<span style={{ 'font-weight:bold;' if view == "foe"}}>Opponents</span>
 	    	</label>
 	    </div>
 	</div>
-	<div class="row">
-		<div class="col s6">
-			<h4 style="font-size: 2rem;">{{ pl1['name']}}</h4>
-			<img class="responsive-img" src={{ pl1['img']}}>
-			<h6>
-			<a class="orange-text text-lighten-2" href=https://www.dota2.com/store/#h={{ id1 }}&cat=3634838168>
-				Use this link to buy a set for your friend.
-			</a>
-			</h6>
-		</div>
-		<div class="col s6">
-			<h4 style="font-size: 2rem;">{{ pl2['name']}}</h4>
-			<img class="responsive-img" src={{ pl2['img']}}>
-			<h6>
-			<a class="orange-text text-lighten-2" href=https://www.dota2.com/store/#h={{ id1 }}&cat=3634838168>
-				Use this link to buy a set for your friend.
-			</a>
-			</h6>
-		</div>
+
+	<div class="row" style="margin-bottom: 0px;">	
+		{{ bigimage.image('dota', pl1, id1, player2=pl2, view=view)}}
+		{{ bigimage.image('dota', pl2, id2, player2=pl1, view=view)}}
 	</div>
+
 	<div class="row">
 		<div id="main" class="col l3 m6">
-			
-			<div class="section left">
-			<table>
-				<thead>
-					<tr><h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5></tr>
-				</thead>
-				{% for item in items1 %}
-				<tr>
-				<td><img class="responsive-img" src={{ item['url'] }}></td>
-				<td><h6>{{ item['name'] }}</h6><h6>WR: {{ item['wr'] }}%</h6></td>
-				</tr>
-				{% endfor %}
-			</table>
-			<table>
-				<thead>
-					<tr><h5 style="font-size: 1.3rem;">Best Solo Skill</h5></tr>
-				</thead>
-				<tr>
-					<td><img class="responsive-img" src={{ skill1['url'] }}></td>
-					<td><p>{{ skill1['name'] }}</p><p>WR: {{ skill1['wr'] }}%</p></td>
-				</tr>
-			</table>
-			</div>
+			{{ lists.input(items1, pl1, skill=skill1, type='solo') }}
 		</div>
 
-
 		<div class="col l3 m6">
-			<div class="section">
-			
-			<table>
-				<thead>
-					<tr><h5 style="margin-top: 0px; font-size: 1.3rem;">Best Paired Items</h5></tr>
-				</thead>
-				{% for item in other_items1 %}
-				<tr>
-				<td><img class="responsive-img" src={{ item['url'] }}></td>
-				<td><h6>{{ item['name'] }}</h6><h6>WR: {{ item['wr'] }}%</h6></td>
-				</tr>
-				{% endfor %}
-			</table>
-			<table>
-				<thead>
-					<tr><h5 style="font-size: 1.3rem;">Best Paired Skill</h5></tr>
-				</thead>
-				<tr>
-					<td><img class="responsive-img" src={{ other_skill1['url'] }}></td>
-					<td><p>{{ other_skill1['name'] }}</p><p>WR: {{ other_skill1['wr'] }}%</p></td>
-				</tr>
-			</table>
-			</div>
+			{{ lists.input(other_items1, pl1, skill=other_skill1, type=view, player2=pl2) }}
 		</div>
 
 		<div id="main" class="col l3 m6">
-			<div class="section left">
-
-			<table>
-				<thead>
-					<tr><h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5></tr>
-				</thead>
-				{% for item in items2 %}
-				<tr>
-				<td><img class="responsive-img" src={{ item['url'] }}></td>
-				<td><h6>{{ item['name'] }}</h6><h6>WR: {{ item['wr'] }}%</h6></td>
-				</tr>
-				{% endfor %}
-			</table>
-			<table>
-				<thead>
-					<tr><h5 style="font-size: 1.3rem;">Best Solo Skill</h5></tr>
-				</thead>
-				<tr>
-					<td><img class="responsive-img" src={{ skill2['url'] }}></td>
-					<td><p>{{ skill2['name'] }}</p><p>WR: {{ skill2['wr'] }}%</p></td>
-				</tr>
-			</table>
-			</div>
+			{{ lists.input(items2, pl2, skill=skill2, type='solo') }}
 		</div>
 
 		<div class="col l3 m6">
-			<div class="section">
-			<table>
-				<thead>
-					<tr><h5 style="margin-top: 0px; font-size: 1.3rem;">Best Paired Items</h5></tr>
-				</thead>
-				{% for item in other_items2 %}
-				<tr>
-				<td><img class="responsive-img" src={{ item['url'] }}></td>
-				<td><h6>{{ item['name'] }}</h6><h6>WR: {{ item['wr'] }}%</h6></td>
-				</tr>
-				{% endfor %}
-			</table>
-			<table>
-				<thead>
-					<tr><h5 style="font-size: 1.3rem;">Best Solo Skill</h5></tr>
-				</thead>
-				<tr>
-					<td><img class="responsive-img" src={{ other_skill2['url'] }}></td>
-					<td><p>{{ other_skill2['name'] }}</p><p>WR: {{ other_skill2['wr'] }}%</p></td>
-				</tr>
-			</table>
-			</div>
+			{{ lists.input(other_items2, pl2, skill=other_skill2, type=view, player2=pl1) }}
 		</div>
-
-
-
-
 	</div>
 </div>
 

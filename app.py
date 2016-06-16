@@ -9,7 +9,7 @@ import dotahelpers
 app = Flask(__name__)
 
 colnames = ["Strength", "Agility", "Intelligence"]
-
+numerals = ["1st", "2nd", "3rd", "4th", "5th"]
 @app.route('/')
 def index():
     return redirect("/league")
@@ -40,6 +40,7 @@ def dsolopage(id):
         items1=items, 
         skill1 = skill,
         colnames = ["Strength", "Agility", "Intelligence"],
+        numerals = ["1st", "2nd", "3rd", "4th", "5th"],
         thumbargs = dotahelpers.thumbargs)
 
 
@@ -90,6 +91,7 @@ def djoint(id, id2, view):
         view = view,
         notview = notview,
         colnames = ["Strength", "Agility", "Intelligence"],
+        numerals = ["1st", "2nd", "3rd", "4th", "5th"],
         thumbargs = dotahelpers.thumbargs)
 
 @app.route('/league')
@@ -104,7 +106,9 @@ def lsolopage(id):
     return render_template(
         'lol_solo.html', 
         pl1=player,
-        items1=items, 
+        id1 = id,
+        items1=items,
+        numerals = ["1st", "2nd", "3rd", "4th", "5th"],
         thumbs=lolhelpers.thumbs)
 
 
@@ -122,9 +126,11 @@ def ljoint(id, id2, view):
     items1 = lolhelpers.soloitems(id)
     items2 = lolhelpers.soloitems(id2)
     if view == "foe":
+        notview = "friend"
         other_items1 = lolhelpers.foeitems(id, id2)
         other_items2 = lolhelpers.foeitems(id2, id)
     elif view == "friend":
+        notview = "foe"
         other_items1 = lolhelpers.frienditems(id, id2)
         other_items2 = lolhelpers.frienditems(id2, id)
     else:
@@ -133,11 +139,15 @@ def ljoint(id, id2, view):
         'lol_joint.html', 
         pl1 = p1,
         pl2 = p2,
+        id1 = id,
+        id2 = id2,
         items1 = items1,
         items2 = items2,
         other_items1 = other_items1,
         other_items2 = other_items2,
         view = view,
+        notview = notview,
+        numerals = ["1st", "2nd", "3rd", "4th", "5th"],
         thumbs=lolhelpers.thumbs)
 
 
