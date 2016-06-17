@@ -239,7 +239,7 @@ thumbs = [[[
     'name': 'Tinker'},
    {'id': 53,
     'img': '/static/furion_sb.png',
-    'name': "Nature\'s Prophet"},
+    'name': "Nature's Prophet"},
    {'id': 58,
     'img': '/static/enchantress_sb.png',
     'name': 'Enchantress'},

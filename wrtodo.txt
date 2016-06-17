@@ -1,0 +1,36 @@
+easy
+change heading fonts
+home link smaller than main content (win rates text)
+replace winrates with home, smaller
+center str/agi/int headers
+link hover should provide some feedback. undelrine?
+contact font size
+contact section wording
+copyright text
+winrates to percentages
+bold item names
+rename links section of footer
+
+medium
+fix friend/foe button anchors
+fix dota portraits to be 4-wide per group
+more font colors, yellow, red
+hover shouldn't obscure images
+glow/highlight/emboss on main hero image
+scroll down a bit when clicking on hero.
+fix redirect breakages
+right-pad winrates
+win rate text color change
+attribute values need quotes
+
+hard
+aim for instant comprehensibility of friend/foe (vague)
+breadcrumb (win rates > dota stats)
+host images locally
+optimize image sizes for page load time
+
+
+speculative
+about page needs a bunch of changes
+ease of finding characters by name
+item description tooltips

@@ -6,6 +6,7 @@
 	<div class="row">
 		<div>
 			<h5 class="center-align">Champions</h5>
+			<span class="right"><a style="margin-top: -2rem; height: 24px; line-height: 24px;" class='dropdown-button btn-flat grey-text text-lighten-3 deep-orange darken-4' href='#' data-activates='dropdown1' data-beloworigin="true" data-constrainwidth="false">Champion Name<i class="material-icons right">arrow_drop_down</i></a></span>
 			{% for thumb in thumbs %}
 				<a class="z-depth-1 tooltipped" href=/league/{{ thumb['id'] }} data-position="top" data-delay="5", data-tooltip={{ thumb['localized_name'] }}>
 					<img width=50px src={{ thumb['url_full_portrait'] }}>
@@ -13,5 +14,10 @@
 			{% endfor %}
 		</div>
 	</div>
+	<ul id='dropdown1' class='dropdown-content' style="margin-top: 2rem;">
+	{% for thumb in thumbs %}
+		<li><a href="/league/{{ thumb['id'] }}">{{ thumb['localized_name'] }}</a></li>
+	{% endfor %}
+	</ul>
 </div>
 {% endblock %}

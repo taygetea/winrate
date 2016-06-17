@@ -39,7 +39,22 @@ def soloskill(pid):
     url = herorow[skill+"_url"].iloc[0]
     return {"name": name, "url": url, "wr": round(wr, 3)*100}
 
-
+def herorate(hero1, hero2=None, view='solo'):
+    hero1 = int(hero1)
+    herorow = heroes[heroes.id == hero1]
+    if view == 'foe':
+        hero2 = int(hero2)
+        pairrow = foes[foes.herocompare == hero2]
+        pairrow = pairrow[pairrow.itemhero == hero1]
+        return round(pairrow.tandem_WR.iloc[0], 3)*100
+    elif view == 'friend':
+        hero2 = int(hero2)
+        pairrow = friends[friends.herocompare == hero2]
+        pairrow = pairrow[pairrow.itemhero == hero1]
+        return round(pairrow.tandem_WR.iloc[0], 3)*100
+    else:
+        solorow = solo[solo.hero == hero1]
+        return round(solorow.solo_WR.iloc[0], 3)*100
 
 def foeskill(hero1, hero2):
     hero1, hero2 = int(hero1), int(hero2)

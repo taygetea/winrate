@@ -1,3 +1,6 @@
+{% import 'lists.html' as lists with context %}
+{% import 'bigimage.html' as bigimage with context %}
+{% import 'herogrid.html' as herogrid with context %}
 {% extends "base_template.html" %}
 {% block body %}
 
@@ -5,56 +8,34 @@
 	<div class="row">
 		<div>
 			<h5 class="center-align">Champions</h5>
+			<span class="right"><a style="margin-top: -2rem; height: 24px; line-height: 24px;" class='dropdown-button btn-flat grey-text text-lighten-3 deep-orange darken-4' href='#' data-activates='dropdown1' data-beloworigin="true" data-constrainwidth="false">Champion Name<i class="material-icons right">arrow_drop_down</i></a></span>
 			{% for thumb in thumbs %}
-				<a class="z-depth-1 tooltipped" href={{ request.path }}/{{ thumb['id'] }}/foe data-position="top" data-delay="5", data-tooltip={{ thumb['localized_name'] }}>
+				<a class="z-depth-1 tooltipped" href={{ request.path }}/{{ thumb['id'] }} data-position="top" data-delay="5", data-tooltip={{ thumb['localized_name'] }}>
 					<img width=50px src={{ thumb['url_full_portrait'] }}>
 				</a>
 			{% endfor %}
 		</div>
 	</div>
+	<div class="col l3">
+	
 
-	<div class="row">
-		<div class="col l4 m12">
-			<h3 style="margin-top: 0px;">Solo</h3>
-		</div>
+    <ul id='dropdown1' class='dropdown-content' style="margin-top: 2rem;">
+	{% for thumb in thumbs %}
+		<li><a href="{{ request.path }}/{{ thumb['id'] }}">{{ thumb['localized_name'] }}</a></li>
+	{% endfor %}
+	</ul>
+	</div>
+
+	<a class="anchor" id="top"></a>
+	<div class="row center-align">
+		<h5 style="margin-top: 0px;" id="header">Solo</h5>
 	</div>
 
 
-	<div class="row">
-		<div id="main" class="col s3 m3">
-			<div class="section">
-				<h4 style="font-size: 2rem;">{{ pl1['name']}}</h4>
-				<img class="responsive-img" src={{ pl1['img']}}>
-			</div>
-			<div class="section left">
-			<table>
-				<thead>
-					<tr><h5 style="margin-top: 0px; font-size: 1.3rem;">Best Solo Items</h5></tr>
-				</thead>
-				{% for item in items1 %}
-				<tr>
-				<td><img class="responsive-img" src={{ item['url'] }}></td>
-				<td><h6>{{ item['name'] }}</h6><h6>WR: {{ item['wr'] }}</h6></td>
-				</tr>
-				{% endfor %}
-			</table>
-			
-			</div>
-		</div>
-		<div class="card-panel amber accent-3 white-text z-depth-4 col s4 offset-s2">
-		<h5>I'm a placeholder!</h5>
-		Soon, all of {{ pl1['name']}}'s best friends (and worst frenemies) will be shown here.
-		</div>
-	</div>
-</div>
 
-{% import 'lists.html' as lists with context %}
-{% import 'bigimage.html' as bigimage with context %}
-{% import 'herogrid.html' as herogrid with context %}
-<div class="container main grey darken-4 z-depth-5">
 
 	<div class="row" style="margin-bottom: 0px;">
-		{{ bigimage.image('lol', pl1, id1)}}
+		{{ bigimage.image('lol', pl1, id1, rate)}}
 	</div>
 
 	<div class="row">

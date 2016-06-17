@@ -1,4 +1,4 @@
-{% macro image(game, player, playerid, player2 = '', view = '') %}
+{% macro image(game, player, playerid, rate, player2 = '', view = '', other_rate = '') %}
 <div class="col s3">
 	<h4 style="font-size: 2rem;">{{ player['name']}}</h4>
 	<img class="responsive-img border" src={{ player['img']}}>
@@ -11,12 +11,12 @@
 	{% endif %}
 </div>
 <div class="col s3">
-<h5 style="margin-top: 5rem; font-size: 1.2rem">Solo winrate<br><span class="amber-text text-accent-3">50.0%</span></h5>
+<h5 style="margin-top: 5rem; font-size: 1.2rem">Solo winrate<br><span class="amber-text text-accent-3">{{ rate }}%</span></h5>
 {% if player2 != '' %}
 {% if view == 'friend' %}
-<h5 style="margin-top: 4rem; font-size: 1.2rem">{{ player['name']}}'s winrate with {{ player2['name'] }}<br><span class="amber-text text-accent-3">50.0%</span></h5>
+<h5 style="margin-top: 4rem; font-size: 1.2rem">{{ player['name']}}'s winrate with {{ player2['name'] }}<br><span class="amber-text text-accent-3">{{ other_rate }}%</span></h5>
 {% elif view == 'foe' %}
-<h5 style="margin-top: 2rem; font-size: 1.2rem">{{ player['name']}}'s winrate vs {{ player2['name'] }}<br><span class="amber-text text-accent-3">50.0%</span></h5>
+<h5 style="margin-top: 2rem; font-size: 1.2rem">{{ player['name']}}'s winrate vs {{ player2['name'] }}<br><span class="amber-text text-accent-3">{{ other_rate }}%</span></h5>
 {% endif %}
 {% endif %}
 </div>

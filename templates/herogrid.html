@@ -1,7 +1,7 @@
 {% macro grid(type, playerid = '') %}
 <div class="row">
 {% for col in thumbargs %}
-	<div class="col s4 l3 push-l1">
+	<div class="col s4 l3">
 	{% set rowloop = loop %}
 	<div class="section"><h5>{{ colnames[loop.index0] }}</h5></div>
 	{% for group in col %}
@@ -18,5 +18,23 @@
 	{% endfor %}
 	</div>
 {% endfor %}
+	<div class="col l3">
+	<a style="margin-top: 2rem; height: 24px; line-height: 24px;" class='dropdown-button btn-flat grey-text text-lighten-3 deep-orange darken-4' href='#' data-activates='dropdown1' data-beloworigin="true" data-constrainwidth="false">Hero Name<i class="material-icons right">arrow_drop_down</i></a>
+
+    <ul id='dropdown1' class='dropdown-content' style="margin-top: 2rem;">
+	{% for col in thumbargs %}
+		{% set rowloop = loop %}
+		{% for group in col %}
+			<li class="divider"></li>
+			{% if group.index0 == 0 %}
+				<li><a href="#!">{{ colnames[loop.index0] }}</a></li>
+			{% endif %}
+			{% for hero in group %}
+				<li><a href="/dota/{% if type == 'solo' %}{{playerid['id']}}/{% endif %}{{ hero['id'] }}">{{ hero['name'] }}</a></li>
+			{% endfor %}	
+		{% endfor %}
+	{% endfor %}
+	</ul>
+	</div>
 </div>
 {% endmacro %}

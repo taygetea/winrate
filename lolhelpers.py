@@ -28,6 +28,26 @@ def getitems(row):
          "wr": round(winrate[i], 3)*100} for i in range(len(itemids))]
     return out
     
+def herorate(hero1, hero2=None, view='solo'):
+    # placeholder until I get the real data
+    # import random
+    # return round(random.gauss(0.5, 0.1)*100, 1)
+
+    hero1 = int(hero1)
+    herorow = heroes[heroes.id == hero1]
+    if view == 'foe':
+        hero2 = int(hero2)
+        pairrow = foes[foes.champcompare == hero2]
+        pairrow = pairrow[pairrow.itemchamp == hero1]
+        return round(pairrow.tandem_WR.iloc[0], 3)*100
+    elif view == 'friend':
+        hero2 = int(hero2)
+        pairrow = friends[friends.champcompare == hero2]
+        pairrow = pairrow[pairrow.itemchamp == hero1]
+        return round(pairrow.tandem_WR.iloc[0], 3)*100
+    else:
+        solorow = solo[solo.champ == hero1]
+        return round(solorow.solo_WR.iloc[0], 3)*100
 
 
 def soloitems(pid):
