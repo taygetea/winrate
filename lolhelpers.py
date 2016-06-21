@@ -64,6 +64,14 @@ def frienditems(hero1, hero2):
     row = friends[friends['itemchamp'] == int(hero1)][friends['champcompare'] == int(hero2)]
     return getitems(row)
 
+def frenemies(pid):
+    row = solo[solo['champ'] == int(pid)]
+
+    friend = [[playerdict(pdextract(row, 'friend%s' % i)) for i in range(0, 3)],
+           [round(pdextract(row, 'friend_WR%s' % i)*100, 1) for i in range(0, 3)]]
+    frenemy = [[playerdict(pdextract(row, 'frenemy%s' % i)) for i in range(0, 3)],
+           [round(pdextract(row, 'frenemy_WR%s' % i)*100, 1) for i in range(0, 3)]]
+    return friend, frenemy
 
 def playerdict(pid):
     player = heroes[heroes['id'] == int(pid)]

@@ -18,13 +18,51 @@
 	</div>
 
 	<div class="row">
-		<div id="main" class="col l3 m6">
+		<div id="main" class="col l3 m6 s12">
 		{{ lists.input(items1, pl1, type='solo', skill=skill1) }}
 		</div>
 
-		<div class="card-panel amber darken-4 white-text z-depth-4 col s4 offset-s2">
-			<h5>I'm a placeholder!</h5>
-			Soon, all of {{ pl1['name']}}'s best friends (and worst frenemies) will be shown here.
+		<div class="col s8 offset-s2 m6 l7 push-l1" style="margin-top: -8rem">
+		<table>
+			<thead><h5>Friends</h5></thead>
+			<tbody>
+			<tr>
+			{% for friend in friends[0] %}
+			<td><p>{{ friend['name'] }}</p></td>
+			{% endfor %}
+			</tr>
+			<tr>
+			{% for friend in friends[0] %}
+			<td><a href="{{ request.path }}/{{ friend['id'] }}/friend#top"><img src="{{ friend['img'] }}" class="responsive-img border" style="max-height: 150px"></a></td>
+			{% endfor %}
+			</tr>
+			<tr>
+			{% for friend in friends[1] %}
+			<td><h6 class="amber-text text-accent-3">WR: {{ friend }}</h6></td>
+			{% endfor %}
+			</tr>
+			</tbody>
+		</table>
+		<table>
+			<thead><h5>Frenemies</h5></thead>
+			<tbody>
+			<tr>
+			{% for frenemy in frenemies[0] %}
+			<td><p>{{ frenemy['name'] }}</p></td>
+			{% endfor %}
+			</tr>
+			<tr>
+			{% for frenemy in frenemies[0] %}
+			<td><a href="{{ request.path }}/{{ frenemy['id'] }}/friend#top"><img src="{{ frenemy['img'] }}" class="responsive-img border" style="max-height: 150px"></a></td>
+			{% endfor %}
+			</tr>
+			<tr>
+			{% for frenemy in frenemies[1] %}
+			<td><h6 class="amber-text text-accent-3">WR: {{ frenemy }}</h6></td>
+			{% endfor %}
+			</tr>
+			</tbody>
+		</table>
 		</div>
 	</div>
 </div>

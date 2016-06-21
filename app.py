@@ -30,10 +30,12 @@ def dland():
 
 @app.route('/dota/<id>')
 def dsolopage(id):
+
     player = dotahelpers.playerdict(id)
     items = dotahelpers.soloitems(id)
     skill = dotahelpers.soloskill(id)
     rate = dotahelpers.herorate(id)
+    friends, frenemies = dotahelpers.frenemies(id)
     return render_template(
         'dota_solo.html', 
         pl1=player,
@@ -41,6 +43,8 @@ def dsolopage(id):
         items1=items, 
         skill1 = skill,
         rate = rate,
+        friends = friends,
+        frenemies = frenemies,
         colnames = ["Strength", "Agility", "Intelligence"],
         numerals = ["1st", "2nd", "3rd", "4th", "5th"],
         thumbargs = dotahelpers.thumbargs)
@@ -114,12 +118,15 @@ def lsolopage(id):
     player = lolhelpers.playerdict(id)
     items = lolhelpers.soloitems(id)
     rate = lolhelpers.herorate(id)
+    friends, frenemies = lolhelpers.frenemies(id)
     return render_template(
         'lol_solo.html', 
         pl1=player,
         id1 = id,
         items1=items,
         rate = rate,
+        friends = friends,
+        frenemies = frenemies,
         numerals = ["1st", "2nd", "3rd", "4th", "5th"],
         thumbs=lolhelpers.thumbs)
 

@@ -94,6 +94,18 @@ def frienditems(hero1, hero2):
     row = friends[friends['itemhero'] == int(hero1)][friends['herocompare'] == int(hero2)]
     return getitems(row)
 
+def frenemies(pid):
+    row = solo[solo['hero'] == int(pid)]
+
+    friend = [[playerdict(pdextract(row, 'friend%s' % i)) for i in range(0, 3)],
+           [round(pdextract(row, 'friend_WR%s' % i)*100, 1) for i in range(0, 3)]]
+    for f in friend[0]:
+        f['img'] = f['img'].replace("_full.png", "_vert.jpg")
+    frenemy = [[playerdict(pdextract(row, 'frenemy%s' % i)) for i in range(3, 6)],
+           [round(pdextract(row, 'frenemy_WR%s' % i)*100, 1) for i in range(3, 6)]]
+    for f in frenemy[0]:
+        f['img'] = f['img'].replace("_full.png", "_vert.jpg")
+    return friend, frenemy
 
 def playerdict(pid):
     player = heroes[heroes['id'] == int(pid)]

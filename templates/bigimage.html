@@ -1,16 +1,16 @@
 {% macro image(game, player, playerid, rate, player2 = '', view = '', other_rate = '') %}
-<div class="col s3">
+<div class="col s6 m3">
 	<h4 style="font-size: 2rem;">{{ player['name']}}</h4>
 	<img class="responsive-img border" src={{ player['img']}}>
 	{% if game == 'dota' %}
 	<h6>
-	<a class="amber-text text-accent-3" href=https://www.dota2.com/store/#h={{ playerid }}&cat=3634838168>
-		Use this link to buy a set for your friend.
+	<a class="green-text text-lighten-2" href=https://www.dota2.com/store/#h={{ playerid }}&cat=3634838168>
+		Gift a set to your friend
 	</a>
 	</h6>
 	{% endif %}
 </div>
-<div class="col s3">
+<div class="col s6 m3">
 <h5 style="margin-top: 5rem; font-size: 1.2rem">Solo winrate<br><span class="amber-text text-accent-3">{{ rate }}%</span></h5>
 {% if player2 != '' %}
 {% if view == 'friend' %}
