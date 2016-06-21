@@ -7,11 +7,11 @@
 			<tr><h6 style="margin-top: 0px"><br>General {{ player['name']}} build</h6></tr>
 		</thead>
 		{% elif type == 'friend' %}
-		<thead>
+		<thead style="border-bottom: 1px solid #00e676">
 			<tr><h6 style="margin-top: 0px">{{ player['name'] }} with {{ player2['name'] }}<br>as a <b>TEAMMATE</b></h6></tr>
 		</thead>
 		{% elif type == 'foe' %}
-		<thead>
+		<thead style="border-bottom: 1px solid #ff3d00">
 			<tr><h6 style="margin-top: 0px">{{ player['name'] }} with {{ player2['name'] }}<br>as an <b>OPPONENT</b></h6></tr>
 		</thead>
 		{% endif %}
