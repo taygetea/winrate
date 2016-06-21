@@ -74,6 +74,7 @@ def frenemies(pid):
     return friend, frenemy
 
 def playerdict(pid):
+    pid = int(pid)
     player = heroes[heroes['id'] == int(pid)]
     img = pdextract(player, 'url_full_portrait')
     name = pdextract(player, 'localized_name')
