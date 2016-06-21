@@ -34,10 +34,10 @@
 		<p style="font-size: 1.2rem">You are currently viewing these two heroes as</p>
 		<div class="switch">
 	    	<label style="font-size: 1.3rem;">
-	    	<span style={{ 'font-weight:bold;' if view == "friend"}}>Teammates</span>
+	    	<span class={{ 'friendborder' if view == "friend"}}>Teammates</span>
 	    	<input type="checkbox" id="myswitch">
 	    	<span class="lever" onClick='setTimeout(function(){window.location="{{ notview }}#top";}, 300);'></span>
-	    	<span style={{ 'font-weight:bold;' if view == "foe"}}>Opponents</span>
+	    	<span class={{ "foeborder" if view == "foe"}}>Opponents</span>
 	    	</label>
 	    </div>
 	</div>

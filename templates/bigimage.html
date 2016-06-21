@@ -4,8 +4,14 @@
 	<img class="responsive-img border" src={{ player['img']}}>
 	{% if game == 'dota' %}
 	<h6>
-	<a class="green-text text-lighten-2" href=https://www.dota2.com/store/#h={{ playerid }}&cat=3634838168>
+	<a class="white-text text-lighten-4" href=https://www.dota2.com/store/#h={{ playerid }}&cat=3634838168>
 		Gift a set to your friend
+	</a>
+	</h6>
+	{% elif game == 'lol' %}
+	<h6>
+	<a class="white-text text-lighten-4" href=http://na.leagueoflegends.com/en/news/store/sales/july-sales-schedule>
+		See about getting a set for your friend
 	</a>
 	</h6>
 	{% endif %}
