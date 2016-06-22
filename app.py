@@ -9,7 +9,7 @@ import dotahelpers  as dota
 app = Flask(__name__)
 
 colnames = ["Strength", "Agility", "Intelligence"]
-numerals = ["1st", "2nd", "3rd", "4th", "5th"]
+numerals = ["1st", "2nd", "3rd", "4th", "5th", "6th"]
 @app.route('/')
 def index():
     return redirect("/league")
@@ -47,7 +47,7 @@ def dsolopage(id):
         friends = friends,
         frenemies = frenemies,
         colnames = ["Strength", "Agility", "Intelligence"],
-        numerals = ["1st", "2nd", "3rd", "4th", "5th"],
+        numerals = ["1st", "2nd", "3rd", "4th", "5th", "6th"],
         thumbargs = dota.thumbargs,
         alpha_thumbs = dota.alpha_thumbs)
 
@@ -107,7 +107,7 @@ def djoint(id, id2, view):
         other_rate1 = other_rate1,
         other_rate2 = other_rate2,
         colnames = ["Strength", "Agility", "Intelligence"],
-        numerals = ["1st", "2nd", "3rd", "4th", "5th"],
+        numerals = ["1st", "2nd", "3rd", "4th", "5th", "6th"],
         thumbargs = dota.thumbargs,
         alpha_thumbs = dota.alpha_thumbs)
 
@@ -130,7 +130,7 @@ def lsolopage(id):
         rate = rate,
         friends = friends,
         frenemies = frenemies,
-        numerals = ["1st", "2nd", "3rd", "4th", "5th"],
+        numerals = ["1st", "2nd", "3rd", "4th", "5th", "6th"],
         thumbs=lol.thumbs)
 
 
@@ -178,7 +178,7 @@ def ljoint(id, id2, view):
         rate2 = rate2,
         other_rate1 = other_rate1,
         other_rate2 = other_rate2,
-        numerals = ["1st", "2nd", "3rd", "4th", "5th"],
+        numerals = ["1st", "2nd", "3rd", "4th", "5th", "6th"],
         thumbs=lol.thumbs)
 
 
