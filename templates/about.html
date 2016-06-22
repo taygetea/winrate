@@ -3,24 +3,38 @@
 {% block body %}
 
 <div class="container main grey darken-4 z-depth-5">
+	<div class="row">
+	<div class="col s12 m9 l10 offset-m2 offset-l1">
 	<div class="section">
 		<h4>What this website does</h4>
-		<p>This site is intended to be a resource for cooperative gaming. The other major statistics websites for both Dota and League focus almost entirely on "what can I as a player do to beat the other team". I started this project to try and show that there is still market value in getting players to think "cooperative" instead of only "competitive". This site is definitely a work in progress, so until we get a landing page up, here's how to read it:</p>
+		<p>This site is intended to be a resource for cooperative gaming. The other major statistics websites for both Dota and League focus almost entirely on "what can I as a player do to beat the other team". I started this project to try and show that there is still usefulness and market value in getting players to think "cooperative" instead of only "competitive". This site is definitely a work in progress! Here's how to read it:</p>
 
-		<p>The first click on the hero / champion grid selects the first hero and displays which items to buy in which order along with their winrate, regardless of their teammates or opponents. Suggested item completion order is top to bottom.</p>
+		<p>The first click on the hero / champion grid selects the first hero and displays which items to buy in what order along with their winrate and best friends - regardless of their teammates or opponents. Suggested item completion order is top to bottom.</p>
 		
-		<p>The second click on the grid shows both solo and paired items for both heroes. The selected two can be displayed as either Foes or Friends (on opposite teams and on the same team) using the buttons with the sword icons. You can use how the items change from solo to paired by looking for differences between the columns. You can think of the Teammates / Opponents view as 1v1 and 2v0.
+		<p>The second click on the grid shows both solo and paired items for both heroes. The selected two can be displayed as either Foes or Friends (on opposite teams and on the same team) using the selector switch below the hero / champion grid. You can see how the items change from solo to paired by looking for differences between the columns. You can think of the Teammates / Opponents view as 2v0 and 1v1.</p>
 
-		<p>For League, I recommend checking out <a href="/league/1/112/foe">Annie / Viktor</a> as friends and foes - without being informed about support or carry roles my algorithm picks up on the winning trend of Annie buying support items when paired with Viktor and carry items when fighting him.</p>
+		<p>I’ve developed the recommendation algorithm by doing some machine learning over about 600,000 matches for each game. The algorithm is based on various types of random forest classification, and I’m improving it all the time. One weakness I’m working to address is the multiple recommendations for boots, especially with Boots of Travel in DotA matches. Be sure to check back - the recommendation algorithm should improve every few days.</p>
+
+		<p>You may notice that the winrates aren’t sequential with buy order - that’s intentional! If the buy order was based only on winrate then you’d always get the lategame items first. As I improve the algorithm then you’ll see better and better build orders, which may or may not keep the same sequencing.</p>
+
+		<p>The newest patch for DotA hasn’t been out long enough for me to grab enough matches for good statistics - It’s currently displaying data for 6.87 and I’ll update it as soon as I can get enough matches from the Valve API.</p>
+
+		<h4>Examples</h4>
+
+		<p>For League, I recommend checking out <a href="/league/1/112/foe#top">Annie / Viktor</a> as friends and foes - without being informed about support or carry roles my algorithm picks up on the winning trend of Annie buying support items when paired with Viktor and carry items when fighting him.</p>
 
 		<p>For Dota, I recommend <a href="/dota/63/84/foe">Weaver / Ogre Magi</a> - when they're opponents my algorithm suggests Linkens earlier since it deals with Ogre. When they're on the same team the build changes back towards 'normal'</p>
 
 	</div>
 	<div class="section">
-		<h4>Features we intend to implement - </h4>
-		<p>Pro stats - comparing different levels of skill is easy to do as I gather more match data.</p>
-		<p>Landing page - this site can be and will get easier to use, we're tackling the web design and UX as we build more features, but there's only two of us.</p>
-		<p>5v5 calculator - It won't be hard to generalize what I've worked up for the pair calculator into a page showing optimal builds given specified teammates and opponents. I'll implement this when I get a spare day</p>
+		<h4>Features we intend to implement</h4>
+		<h5>Pro stats</h5>
+		<p>Comparing different levels of skill is easy to do as I gather more match data.</p>
+		<h5>Landing page</h5>
+		<p>Trench Guru can be and will get easier to use. We're tackling the web design and UX as we build more features, but there's only two of us.</p>
+		<h5>5v5 calculator</h5>
+		<p>It won't be hard to generalize what I've worked up for the pair calculator into a page showing optimal builds given specified teammates and opponents. I'll implement this when I get a spare day</p>
+		<h5>Better recommendations</h5>
 		<p>I'm tweaking the algorithm all the time, so the build order is getting better. If you notice an issue I'd like to hear about it so that I can update around it.</p>
 	</div>
 	<div class="section">
@@ -30,7 +44,8 @@
 			<p>Thanks for visiting! </p>
 			<p>-David Jones</p>
 	</div>
-	
+</div>
+</div>	
 
 </div>
 {% endblock %}

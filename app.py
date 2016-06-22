@@ -2,8 +2,8 @@
 
 
 from flask import Flask, redirect, render_template
-import lolhelpers
-import dotahelpers
+import lolhelpers as lol
+import dotahelpers  as dota
 
 
 app = Flask(__name__)
@@ -26,16 +26,17 @@ def contact():
 def dland():
     return render_template("dota_landing.html",
         colnames = ["Strength", "Agility", "Intelligence"],
-        thumbargs = dotahelpers.thumbargs)
+        thumbargs = dota.thumbargs,
+        alpha_thumbs = dota.alpha_thumbs)
 
 @app.route('/dota/<id>')
 def dsolopage(id):
 
-    player = dotahelpers.playerdict(id)
-    items = dotahelpers.soloitems(id)
-    skill = dotahelpers.soloskill(id)
-    rate = dotahelpers.herorate(id)
-    friends, frenemies = dotahelpers.frenemies(id)
+    player = dota.playerdict(id)
+    items = dota.soloitems(id)
+    skill = dota.soloskill(id)
+    rate = dota.herorate(id)
+    friends, frenemies = dota.frenemies(id)
     return render_template(
         'dota_solo.html', 
         pl1=player,
@@ -47,7 +48,8 @@ def dsolopage(id):
         frenemies = frenemies,
         colnames = ["Strength", "Agility", "Intelligence"],
         numerals = ["1st", "2nd", "3rd", "4th", "5th"],
-        thumbargs = dotahelpers.thumbargs)
+        thumbargs = dota.thumbargs,
+        alpha_thumbs = dota.alpha_thumbs)
 
 
 @app.route('/dota/<id>/<id2>')
@@ -60,28 +62,28 @@ def dpair(id, id2):
 def djoint(id, id2, view):
     if id == id2:
         return redirect("/dota/%s" % id)
-    p1 = dotahelpers.playerdict(id)
-    p2 = dotahelpers.playerdict(id2)
-    items1 = dotahelpers.soloitems(id)
-    items2 = dotahelpers.soloitems(id2)
-    skill1 = dotahelpers.soloskill(id)
-    skill2 = dotahelpers.soloskill(id2)
-    rate1 = dotahelpers.herorate(id)
-    rate2 = dotahelpers.herorate(id2)
-    other_rate1 = dotahelpers.herorate(id, id2, view)
-    other_rate2 = dotahelpers.herorate(id2, id, view)
+    p1 = dota.playerdict(id)
+    p2 = dota.playerdict(id2)
+    items1 = dota.soloitems(id)
+    items2 = dota.soloitems(id2)
+    skill1 = dota.soloskill(id)
+    skill2 = dota.soloskill(id2)
+    rate1 = dota.herorate(id)
+    rate2 = dota.herorate(id2)
+    other_rate1 = dota.herorate(id, id2, view)
+    other_rate2 = dota.herorate(id2, id, view)
     if view == "foe":
         notview = "friend"
-        other_skill1 = dotahelpers.foeskill(id, id2)
-        other_skill2 = dotahelpers.foeskill(id2, id)
-        other_items1 = dotahelpers.foeitems(id, id2)
-        other_items2 = dotahelpers.foeitems(id2, id)
+        other_skill1 = dota.foeskill(id, id2)
+        other_skill2 = dota.foeskill(id2, id)
+        other_items1 = dota.foeitems(id, id2)
+        other_items2 = dota.foeitems(id2, id)
     elif view == "friend":
         notview = "foe"
-        other_skill1 = dotahelpers.friendskill(id, id2)
-        other_skill2 = dotahelpers.friendskill(id2, id)
-        other_items1 = dotahelpers.frienditems(id, id2)
-        other_items2 = dotahelpers.frienditems(id2, id)
+        other_skill1 = dota.friendskill(id, id2)
+        other_skill2 = dota.friendskill(id2, id)
+        other_items1 = dota.frienditems(id, id2)
+        other_items2 = dota.frienditems(id2, id)
     else:
         return redirect("/dota/%s/%s" % (id, id2))
     return render_template(
@@ -106,19 +108,20 @@ def djoint(id, id2, view):
         other_rate2 = other_rate2,
         colnames = ["Strength", "Agility", "Intelligence"],
         numerals = ["1st", "2nd", "3rd", "4th", "5th"],
-        thumbargs = dotahelpers.thumbargs)
+        thumbargs = dota.thumbargs,
+        alpha_thumbs = dota.alpha_thumbs)
 
 @app.route('/league')
 def lland():
-    return render_template("lol_landing.html", thumbs=lolhelpers.thumbs)
+    return render_template("lol_landing.html", thumbs=lol.thumbs)
 
 
 @app.route('/league/<id>')
 def lsolopage(id):
-    player = lolhelpers.playerdict(id)
-    items = lolhelpers.soloitems(id)
-    rate = lolhelpers.herorate(id)
-    friends, frenemies = lolhelpers.frenemies(id)
+    player = lol.playerdict(id)
+    items = lol.soloitems(id)
+    rate = lol.herorate(id)
+    friends, frenemies = lol.frenemies(id)
     return render_template(
         'lol_solo.html', 
         pl1=player,
@@ -128,7 +131,7 @@ def lsolopage(id):
         friends = friends,
         frenemies = frenemies,
         numerals = ["1st", "2nd", "3rd", "4th", "5th"],
-        thumbs=lolhelpers.thumbs)
+        thumbs=lol.thumbs)
 
 
 @app.route('/league/<id>/<id2>')
@@ -140,23 +143,23 @@ def lpair(id, id2):
 def ljoint(id, id2, view):
     if id == id2:
         return redirect("/league/%s" % id)
-    p1 = lolhelpers.playerdict(id)
-    p2 = lolhelpers.playerdict(id2)
-    items1 = lolhelpers.soloitems(id)
-    items2 = lolhelpers.soloitems(id2)
-    rate1 = lolhelpers.herorate(id)
-    rate2 = lolhelpers.herorate(id2)
-    other_rate1 = lolhelpers.herorate(id, id2, view)
-    other_rate2 = lolhelpers.herorate(id2, id, view)
+    p1 = lol.playerdict(id)
+    p2 = lol.playerdict(id2)
+    items1 = lol.soloitems(id)
+    items2 = lol.soloitems(id2)
+    rate1 = lol.herorate(id)
+    rate2 = lol.herorate(id2)
+    other_rate1 = lol.herorate(id, id2, view)
+    other_rate2 = lol.herorate(id2, id, view)
 
     if view == "foe":
         notview = "friend"
-        other_items1 = lolhelpers.foeitems(id, id2)
-        other_items2 = lolhelpers.foeitems(id2, id)
+        other_items1 = lol.foeitems(id, id2)
+        other_items2 = lol.foeitems(id2, id)
     elif view == "friend":
         notview = "foe"
-        other_items1 = lolhelpers.frienditems(id, id2)
-        other_items2 = lolhelpers.frienditems(id2, id)
+        other_items1 = lol.frienditems(id, id2)
+        other_items2 = lol.frienditems(id2, id)
     else:
         return redirect("/league/%s/%s" % (id, id2))
     return render_template(
@@ -176,7 +179,7 @@ def ljoint(id, id2, view):
         other_rate1 = other_rate1,
         other_rate2 = other_rate2,
         numerals = ["1st", "2nd", "3rd", "4th", "5th"],
-        thumbs=lolhelpers.thumbs)
+        thumbs=lol.thumbs)
 
 
 if __name__ == "__main__":

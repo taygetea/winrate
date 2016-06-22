@@ -17,6 +17,7 @@
   
 
     $(document).ready(function() {
+        $(".button-collapse").sideNav();
         $('body').on('click', '[href^=#]', function (e) { e.preventDefault() });
     });
   </script>
@@ -147,14 +148,23 @@
             <div class="container nav-text">
             <!-- Navbar at top of page -->
                 <div class="nav-wrapper nav-text">
-                    <a href="#" class="brand-logo">Trench Guru</a>
-                    <ul id="nav-mobile" class="right">
+                    <a href="#!" class="brand-logo" style="line-height:42px;">Trench Guru</a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons" style="line-height:42px;">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down" style="line-height:42px;">
                         <li><a href="/" class="white-text">Home</a></li>
-                        <li><a href="/dota" class="whiye-text">Dota Stats</a></li>
+                        <li><a href="/dota" class="white-text">Dota Stats</a></li>
                         <li><a href="/league" class="white-text">League Stats</a></li>
                         <li><a href="/about" class="white-text">About</a></li>
                         <li><a href="/blog" class="white-text">Blog</a></li>
                         <li><a href="/contact" class="white-text">Contact</a></li>
+                    </ul>
+                    <ul id="mobile-demo" class="side-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/dota">Dota Stats</a></li>
+                        <li><a href="/league">League Stats</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -175,8 +185,9 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a href="mailto:david.h.jones37@gmail.com">David Jones</a> - Data Scientist</li>
-                  <li><a href="mailto:taygetea@gmail.com">Olivia Schaefer</a> - Web Developer</li>
+                  <li><a href="mailto:trench.guru+dave@gmail.com">David Jones</a> - Data Scientist</li>
+                  <li><a href="mailto:trench.guru+olivia@gmail.com">Olivia Schaefer</a> - Web Developer</li>
+                  <li><a href="http://signaldatascience.com">Signal Data Science</a></li>
                 </ul>
             </div>
         </div>

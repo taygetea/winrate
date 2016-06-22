@@ -18,22 +18,15 @@
 	{% endfor %}
 	</div>
 {% endfor %}
+{{ alpha_thumbs['name'] }}
 	<div class="col l3">
 	<a style="margin-top: 2rem; height: 24px; line-height: 24px;" class='dropdown-button btn-flat grey-text text-lighten-3 deep-orange darken-4' href='#' data-activates='dropdown1' data-beloworigin="true" data-constrainwidth="false">Hero Name<i class="material-icons right">arrow_drop_down</i></a>
 
     <ul id='dropdown1' class='dropdown-content' style="margin-top: 2rem;">
-	{% for col in thumbargs %}
-		{% set rowloop = loop %}
-		{% for group in col %}
-			<li class="divider"></li>
-			{% if group.index0 == 0 %}
-				<li><a href="#!">{{ colnames[loop.index0] }}</a></li>
-			{% endif %}
-			{% for hero in group %}
-				<li><a href="/dota/{% if type == 'solo' %}{{playerid['id']}}/{% endif %}{{ hero['id'] }}">{{ hero['name'] }}</a></li>
-			{% endfor %}	
-		{% endfor %}
-	{% endfor %}
+
+	{% for hero in alpha_thumbs %}
+		<li><a href="/dota/{% if type == 'solo' %}{{playerid['id']}}/{% endif %}{{ hero['id'] }}">{{ hero['name'] }}</a></li>
+	{% endfor %}	
 	</ul>
 	</div>
 </div>

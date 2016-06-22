@@ -10,6 +10,12 @@ friends = pd.read_csv('dotadata/teammates.csv')
 # skills['id'] = pd.merge(heroes, skills, left_on=["localized_name"], right_on=["name"])['id']
 # skills['key'] = pd.Series(["Q", "W", "E"]*len(pd.unique(skills['id'])))
 
+alpha_thumbs = []
+for col in thumbargs:
+    for group in col:
+        for hero in group:
+            alpha_thumbs.append(hero)
+alpha_thumbs = pd.DataFrame(alpha_thumbs).sort_values('name').to_dict('records')
 
 
 def pdextract(row, col):
@@ -18,9 +24,11 @@ def pdextract(row, col):
 
 
 def getitems(row):
-    itemnames = [pdextract(row, 'item_name%s' % i) for i in range(0, 5)]
-    itemids = [pdextract(row, 'item%s' % i) for i in range(0, 5)]
-    winrate = [pdextract(row, 'item_WR%s' % i) for i in range(0, 5)]
+    numitems = len([col for col in list(row.columns) if col.startswith('item_name')])
+
+    itemnames = [pdextract(row, 'item_name%s' % i) for i in range(0, numitems)]
+    itemids = [pdextract(row, 'item%s' % i) for i in range(0, numitems)]
+    winrate = [pdextract(row, 'item_WR%s' % i) for i in range(0, numitems)]
     urls = [pdextract(items[items['id'] == i], 'url_image') for i in itemids]
     out = [
         {"id": itemids[i],
